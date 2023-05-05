@@ -233,7 +233,7 @@
         const categoryId = $(this).val();
         // alert(categoryId)
         $.ajax({
-            url: `https://etrabaho.bisubilar.org/freelancer/category/${categoryId}`, // Modified URL with categoryId parameter
+            url: `http://127.0.0.1:8000/freelancer/category/${categoryId}`, // Modified URL with categoryId parameter
             type: 'GET',
             success: function(data) {
                 $('.samplc').empty();
@@ -316,7 +316,7 @@
     // alert(modalId)
     // Use the freelancerId value in your AJAX request, if needed
     $.ajax({
-                url: `https://etrabaho.bisubilar.org/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
+                url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
                 type: 'GET',
                 success: function(data) {
                     // console.log(data)
@@ -522,7 +522,7 @@ $(document).ready(function() {
             var selectedValue = $('#mySelect').val();
             // alert(categoryId)
             $.ajax({
-                url: `https://etrabaho.bisubilar.org/freelancerss/${selectedValue}`, // Modified URL with categoryId parameter
+                url: `http://127.0.0.1:8000/freelancerss/${selectedValue}`, // Modified URL with categoryId parameter
                 type: 'GET',
                 success: function(data) {
                     // console.log(data);
@@ -604,7 +604,7 @@ $(document).ready(function() {
     // alert(modalId)
     // Use the freelancerId value in your AJAX request, if needed
     $.ajax({
-                url: `https://etrabaho.bisubilar.org/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
+                url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
                 type: 'GET',
                 success: function(data) {
                     // console.log(data)
@@ -697,7 +697,7 @@ $(document).ready(function() {
                                     </div>
                                     <div class="col-sm-9">
                                     <p class="text-muted mb-0">${data[0].gender}</p>
-                                    </div>
+                                    </div>http://127.0.0.1:8000/
                                 </div>
                                 <hr>
                                 <div class="row">

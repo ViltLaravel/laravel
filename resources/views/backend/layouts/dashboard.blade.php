@@ -25,6 +25,8 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
+
+        @if (auth()->user()->role == 'admin')
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
@@ -84,7 +86,39 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
+
+        @elseif (auth()->user()->role == 'freelancer')
+        <a href="{{ route('admin.employer') }}">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+
+                <div class="info-box-content">
+                    <span style="color: black;" class="info-box-text">Total Employer</span>
+                    <span style="color: black;" class="info-box-number"> {{ $totalemployer }}</span>
+                </div>
+                <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        </a>
+        @else
+        <a href="/">
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+                <span style="color: black;" class="info-box-text">Total Freelancer</span>
+                <span style="color: black;" class="info-box-number">{{ $totalfreelancer }}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+        </a>
         </div>
+        @endif
         <!-- /.row -->
 
         <div class="row">
@@ -113,7 +147,7 @@
                 <div class="row">
                   <div class="col-md-8">
                     Welcome to <span style="text-transform: uppercase">{{ auth()->user()->role}}</span> - Dashboard
-                    
+
               </div>
               <!-- /.card-footer -->
             </div>
