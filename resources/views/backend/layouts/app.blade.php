@@ -125,6 +125,9 @@
 <script src="{{ asset('toaster/toastr.min.js')}}"></script>
 <script src="{{ asset('toaster/sweetalert.min.js') }}"></script>
 
+{{-- page-history --}}
+<script src="{{ asset('404/404.js') }}"></script>
+
 <script>
   @if(Session::has('messege'))
     var type="{{Session::get('alert-type','info')}}"

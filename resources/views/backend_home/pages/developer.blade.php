@@ -25,7 +25,7 @@
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                 <p>Bohol Island State University -Bilar Campus</p>
                 <div class="d-flex align-items-center">
-                    <img src="{{ asset('backend_1/img/1650844639101.jpg') }}"
+                    <img src="{{ asset('backend_1/img/nicole.jpg') }}"
                         style="width: 50px; height: 50px; border-radius: 50px; border: 2px solid #fff">
                     <div class="ps-3">
                         <h5 class="mb-1">Nicole Amoguis</h5>
@@ -37,7 +37,7 @@
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                 <p>Bohol Island State University -Bilar Campus</p>
                 <div class="d-flex align-items-center">
-                    <img src="https://tse4.mm.bing.net/th?id=OIP.0A1RSeVHV4YfoDGR2jUvHwHaHa&pid=Api&P=0"
+                    <img src="{{ asset('backend_1/img/marivic.jpg') }}"
                     style="width: 50px; height: 50px; border-radius: 50px; border: 2px solid #fff">
                     <div class="ps-3">
                         <h5 class="mb-1">Marivic Apor</h5>
@@ -49,7 +49,7 @@
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                 <p>Bohol Island State University -Bilar Campus</p>
                 <div class="d-flex align-items-center">
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.BAdrtOmCjHMDXWlyWKB3YAHaHa&pid=Api&P=0"
+                    <img src="{{ asset('backend_1/img/kenn.jpg') }}"
                     style="width: 50px; height: 50px; border-radius: 50px; border: 2px solid #fff">
                     <div class="ps-3">
                         <h5 class="mb-1">Kenn Addison Omapas</h5>

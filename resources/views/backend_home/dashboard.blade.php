@@ -206,7 +206,7 @@
                           <div class="tab-pane fade show p-0 active"></div>
 
                             <div style="display: flex; justify-content:center; align-items:center">
-                                <button id="show-more-btn" style="border-radius: 50px" class="btn btn-outline-primary">Show More</button>
+                                <button id="show-btn" style="border-radius: 50px" class="btn btn-outline-primary">Show More</button>
                             </div>
 
                     </div>
@@ -303,7 +303,7 @@
         </div>
     </div>
     <!-- Testimonial End -->
-    
+
     <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 

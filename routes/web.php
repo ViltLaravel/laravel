@@ -132,9 +132,13 @@ Route::post('/unlock', function (Request $request) {
         'message' => 'Wrong credentials',
         'alert-type' => 'error'
     ]);
-    
+
     return redirect()->back();
 })->name('unlock');
+
+
+// CUSTOM 404
+Route::get('/out-of-bound', [App\Http\Controllers\Custom404Controller::class, 'index'])->name('custom.404');
 
 
 ?>

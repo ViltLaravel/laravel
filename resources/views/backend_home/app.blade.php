@@ -164,6 +164,17 @@
     <script src="{{ asset('backend_1/lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('backend_1/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
+    {{-- page-history --}}
+    {{-- <script src="{{ asset('404/404.js') }}"></script> --}}
+    <script>
+        window.addEventListener('popstate', function(event) {
+        if (isUserLoggedOut()) {
+            event.preventDefault();
+            window.location.href = route('custom.404');
+        }
+        });
+    </script>
+
     <!-- Template Javascript -->
     <script src="{{ asset('backend_1/js/main.js') }}"></script>
 
@@ -182,17 +193,6 @@
         </script>
     @endif
     {{-- SWEETALERT END --}}
-
-    {{-- MODAL EMPLOYER --}}
-    {{-- <script>
-        var myModal = document.getElementById('myModal')
-        var myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
-        })
-    </script> --}}
-    {{-- MODAL EMPLOYER --}}
 
     <!-- Slider JS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
@@ -513,6 +513,26 @@ $(document).ready(function() {
 
 </script>
 {{-- END OF SHOW BUTTON --}}
+
+{{-- START OF SHOW BUTTON  CATEGORY --}}
+<script>
+    $(".limitfl:nth-child(n+3)").hide();
+$(document).ready(function() {
+ $("#show-btn").click(function() {
+   var buttonText = $(this).text();
+
+   if (buttonText === "Show More") {
+     $(".limitfl:nth-child(n+3)").show();
+     $(this).removeClass("btn-outline-primary").addClass("btn-outline-danger").text("Show Less");
+   } else {
+     $(".limitfl:nth-child(n+3)").hide();
+     $(this).removeClass("btn-outline-danger").addClass("btn-outline-primary").text("Show More");
+   }
+ });
+});
+
+</script>
+{{-- END OF SHOW BUTTON CATEGORY --}}
 
 
 {{-- START OF SEARCH ENDPOINT --}}
