@@ -108,5 +108,15 @@
 </script>
 
 <!-- End Toaster & Sweetalert -->
+
+
+<script>
+  document.getElementById('attachment').addEventListener('change', function() {
+    var fileName = this.value.split('\\').pop();
+    var label = document.querySelector('.custom-file-label');
+    label.textContent = fileName;
+  });
+</script>
+
 </body>
 </html>

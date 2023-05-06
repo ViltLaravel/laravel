@@ -165,15 +165,7 @@
     <script src="{{ asset('backend_1/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
     {{-- page-history --}}
-    {{-- <script src="{{ asset('404/404.js') }}"></script> --}}
-    <script>
-        window.addEventListener('popstate', function(event) {
-        if (isUserLoggedOut()) {
-            event.preventDefault();
-            window.location.href = route('custom.404');
-        }
-        });
-    </script>
+    <script src="{{ asset('404/404.js') }}"></script>
 
     <!-- Template Javascript -->
     <script src="{{ asset('backend_1/js/main.js') }}"></script>

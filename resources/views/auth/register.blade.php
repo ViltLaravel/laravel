@@ -34,7 +34,7 @@
       <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
         <div class="input-group mb-3">
-          <input type="text" name="name" class="form-control" placeholder="Full name" required>
+          <input type="text" name="name" class="form-control" placeholder="Full name" required oninput="this.value=this.value.toUpperCase()">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -49,7 +49,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="input-group mb-3">
           <input type="password" name="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
@@ -69,15 +69,16 @@
           </div>
         </div>
 
+        <label style="font-weight:500;">Attachment <span style="font-size: 0.8rem;">( Valid Id or Bio Data )</span></label>
+        <label style="font-weight: 400; color:red; font-size:0.8em;">( pdf / doc / docx / png / jpeg / jpg / gif / max:2MB )</label>
         <div class="input-group mb-3">
-          {{-- <label for="attachment">Attachment</label> --}}
-          <input class="form-control" id="attachment" type="file" name="attachment" required>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-paperclip"></span>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="attachment" name="attachment" required>
+              <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
             </div>
-          </div>
         </div>
+
+        <label style="font-weight:500;">Address</label>
         <div class="input-group mb-3">
             <select class="form-control" name="address">
             <option value="" selected>Address</option>
@@ -91,6 +92,8 @@
               </div>
             </div>
         </div>
+
+        <label style="font-weight:500;">Date of Birth</label>
         <div class="input-group mb-3">
           <input id="dob" class="form-control" type="date" name="dob" placeholder="dd-mm-yyyy" value="{{ date('Y-m-d') }}" min="1997-01-01" max="2030-12-31" required>
           <div class="input-group-append">
@@ -99,6 +102,8 @@
             </div>
           </div>
         </div>
+
+        <label style="font-weight:500;">Phone</label>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">+63</span>
@@ -111,6 +116,7 @@
           </div>
         </div>
 
+        <label style="font-weight:500;">Role</label>
         <div class="input-group mb-3">
           <select class="form-control" name="role" required>
               <option value="">--Select Role--</option>
@@ -127,9 +133,9 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
               <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
+               I agree to the <a  data-toggle="modal" data-target="#term" href="#">terms</a>
               </label>
             </div>
           </div>
@@ -140,6 +146,31 @@
           <!-- /.col -->
         </div>
       </form>
+
+
+      <!-- Modal -->
+    <div class="modal fade" id="term" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Terms and Conditions</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body" style="text-align: justify;  text-indent: 20px;">
+                Welcome to our freelancing website! By accessing and using this website, you agree to abide by the following terms and conditions. Our website is a platform that connects freelancers with clients who are seeking their services. As a freelancer, you are responsible for providing accurate information about your skills, experience, and availability. Clients are responsible for verifying the credentials of freelancers and ensuring that their work meets their requirements. Our website is not responsible for the quality, timeliness, or legality of the work performed by freelancers. We reserve the right to terminate your account at any time for any reason, including violation of our policies or failure to meet client expectations.
+            </div>
+            <div class="modal-body" style="text-align: justify;  text-indent: 20px;">
+                By using our website, you agree to indemnify us and hold us harmless from any claims, damages, or liabilities arising from your use of our platform. These terms and conditions are subject to change at any time without prior notice, so please check back periodically for updates.
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Agree</button>
+            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+            </div>
+        </div>
+        </div>
+    </div>
 
 
 
@@ -205,6 +236,15 @@
       input.attr('type', 'password');
     }
   });
+</script>
+
+{{-- for-making-the-label-to-filename --}}
+<script>
+    document.getElementById('attachment').addEventListener('change', function() {
+      var fileName = this.value.split('\\').pop();
+      var label = document.querySelector('.custom-file-label');
+      label.textContent = fileName;
+    });
 </script>
 </body>
 </html>

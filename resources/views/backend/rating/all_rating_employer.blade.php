@@ -32,15 +32,15 @@
                       <p class="mb-0">
                         {{ $employer->contract_period }}
                         @if ($employer->freelancer_rating == 1)
-                            <span class="badge bg-danger">Bad</span>
+                            <span class="badge bg-danger">Very Unsatisfied</span>
                         @elseif ($employer->freelancer_rating == 2)
-                            <span class="badge bg-danger">Poor</span>
+                            <span class="badge bg-warning">Unsatisfied</span>
                         @elseif ($employer->freelancer_rating == 3)
-                            <span class="badge bg-info">Ok</span>
+                            <span class="badge bg-info">Neutral</span>
                         @elseif ($employer->freelancer_rating == 4)
-                            <span class="badge bg-success">Good</span>
+                            <span class="badge bg-primary">Satisfied</span>
                         @elseif ($employer->freelancer_rating == 5)
-                            <span class="badge bg-warning">Excellent</span>
+                            <span class="badge bg-success">Very Satisfied</span>
                         @endif
 
                       </p>
