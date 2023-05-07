@@ -23,10 +23,10 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Job Title</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="categoryname" placeholder="Enter Job Title" required>
+                <input type="text" class="form-control" name="categoryname" placeholder="Enter Job Title" required oninput="this.value=this.value.toUpperCase()">
             </div>
         </div>
-        
+
     </div>
     {{-- end card body --}}
     <div class="card-footer">
@@ -39,7 +39,7 @@
 {{-- card end --}}
             </div>
             <div class="col-lg-1">
-                
+
             </div>
         </div>
     </section>

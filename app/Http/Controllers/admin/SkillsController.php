@@ -11,8 +11,8 @@ class SkillsController extends Controller
 {
     public function all(){
         $logo = Logo::select('logo_pic')->first();
-        $all = DB::table('skills')->get();
-        return view('backend.skills.all_skills', compact('logo','all')); 
+        $all = DB::table('skills')->orderBy('skills_name')->get();
+        return view('backend.skills.all_skills', compact('logo','all'));
     }
 
     //Add User & Insert User
@@ -48,7 +48,7 @@ class SkillsController extends Controller
              return redirect()->route('all.skills')->with($notification);
          }
 
-        
+
     }
 
     public function edit($id){
@@ -91,7 +91,7 @@ class SkillsController extends Controller
     public function delete($id){
         try {
             $delete = DB::table('skills')->where('id', $id)->delete();
-    
+
             if ($delete) {
                 $notification= array
                 (

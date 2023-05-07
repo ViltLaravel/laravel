@@ -26,7 +26,9 @@ Route::get('/freelancerss/{id}', [App\Http\Controllers\Home\MainController::clas
 Route::get('/freelancer/category/{categoryId}', [App\Http\Controllers\Home\MainController::class, 'getFreelancersByCategory']);
 
 // USER MANAGEMENT
-Route::get('/all-user', [App\Http\Controllers\backend\UserController::class, 'Alluser'])->name('alluser');
+Route::get('/all-admin-list', [App\Http\Controllers\backend\UserController::class, 'Alluser'])->name('alluser.admin');
+Route::get('/all-employer-list', [App\Http\Controllers\backend\UserController::class, 'employer'])->name('alluser.employers');
+Route::get('/all-freelancer-list', [App\Http\Controllers\backend\UserController::class, 'freelancer'])->name('alluser.freelancer');
 Route::get('/add-user-index', [App\Http\Controllers\backend\UserController::class, 'AllUserIndex'])->name('AllUserIndex');
 Route::post('/insert-user', [App\Http\Controllers\backend\UserController::class, 'InsertUserIndex'])->name('InsertUser');
 Route::get('/edit-user/{id}', [App\Http\Controllers\backend\UserController::class, 'EditUserIndex'])->name('EditUser');

@@ -206,7 +206,7 @@
                     <div class="form-group row">
                       <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                       <div class="col-sm-10">
-                        <input name="name" type="text" class="form-control" id="inputName" placeholder="Name" value="{{ auth()->user()->name }}">
+                        <input name="name" type="text" class="form-control" id="inputName" placeholder="Name" value="{{ auth()->user()->name }}" oninput="this.value=this.value.toUpperCase()">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -256,7 +256,7 @@
                     <div class="form-group row">
                       <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                       <div class="col-sm-10">
-                        <input name="name" type="name" class="form-control" id="inputName" placeholder="Name" value="{{ auth()->user()->name }}">
+                        <input name="name" type="name" class="form-control" id="inputName" placeholder="Name" value="{{ auth()->user()->name }}" oninput="this.value=this.value.toUpperCase()">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -342,7 +342,7 @@
                     <div class="form-group row">
                       <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                       <div class="col-sm-10">
-                        <input name="name" type="text" class="form-control" id="inputName" placeholder="Name" value="{{ auth()->user()->name }}">
+                        <input name="name" type="text" class="form-control" id="inputName" placeholder="Name" value="{{ auth()->user()->name }}" oninput="this.value=this.value.toUpperCase()">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -390,7 +390,7 @@
                       <div class="offset-sm-2 col-sm-10">
                         <div class="checkbox">
                           <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                            <input type="checkbox" required> I agree to the <a data-toggle="modal" data-target="#term" href="#">terms and conditions</a>
                           </label>
                         </div>
                       </div>
@@ -424,7 +424,7 @@
                       <div class="offset-sm-2 col-sm-10">
                         <div class="checkbox">
                           <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                            <input type="checkbox" required> I agree to the <a data-toggle="modal" data-target="#term" href="#">terms and conditions</a>
                           </label>
                         </div>
                       </div>
@@ -444,21 +444,27 @@
                     @csrf
                     <div class="form-group row">
                       <label for="inputName" class="col-sm-2 col-form-label">Resume/CV</label>
-                      <div class="col-sm-10">
-                        <input name="resume" type="file" class="form-control">
-                      </div>
+
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="resume-file" name="resume" required value="{{ auth()->user()->resume }}">
+                            <label class="custom-file-label" for="resume-file">{{ auth()->user()->resume }}</label>
+                            </div>
+                        </div>
+                        <label style="color: red; font-weight:500;">( <span style="color:black; font-style:italic;">Note:</span> pdf/docx/docs/max:2MB )</label>
+
                     </div>
                     <div class="form-group row">
-                      <div class="offset-sm-2 col-sm-10">
+                      <div class="input-group mb-3">
                         <div class="checkbox">
                           <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                            <input type="checkbox" required> I agree to the <a data-toggle="modal" data-target="#term" href="#">terms and conditions</a>
                           </label>
                         </div>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <div class="offset-sm-2 col-sm-10">
+                      <div class="input-group mb-3">
                         <button type="submit" class="btn btn-danger">Submit</button>
                       </div>
                     </div>
@@ -479,6 +485,32 @@
   </section>
   <!-- /.content -->
 </div>
+
+ <!-- Modal -->
+ <div class="modal fade" id="term" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Terms and Conditions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body" style="text-align: justify;  text-indent: 20px;">
+            Welcome to our freelancing website! By accessing and using this website, you agree to abide by the following terms and conditions. Our website is a platform that connects freelancers with clients who are seeking their services. As a freelancer, you are responsible for providing accurate information about your skills, experience, and availability. Clients are responsible for verifying the credentials of freelancers and ensuring that their work meets their requirements. Our website is not responsible for the quality, timeliness, or legality of the work performed by freelancers. We reserve the right to terminate your account at any time for any reason, including violation of our policies or failure to meet client expectations.
+        </div>
+        <div class="modal-body" style="text-align: justify;  text-indent: 20px;">
+            By using our website, you agree to indemnify us and hold us harmless from any claims, damages, or liabilities arising from your use of our platform. These terms and conditions are subject to change at any time without prior notice, so please check back periodically for updates.
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Agree</button>
+        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+        </div>
+    </div>
+    </div>
+</div>
+
+
 <!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="float-right d-none d-sm-block">

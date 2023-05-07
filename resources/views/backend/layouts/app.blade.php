@@ -188,5 +188,14 @@
     });
   });
 </script>
+
+{{-- for-making-the-label-to-filename --}}
+<script>
+    document.getElementById('resume-file').addEventListener('change', function() {
+      var fileName = this.value.split('\\').pop();
+      var label = document.querySelector('.custom-file-label');
+      label.textContent = fileName;
+    });
+</script>
 </body>
 </html>

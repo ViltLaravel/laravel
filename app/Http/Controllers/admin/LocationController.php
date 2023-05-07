@@ -10,9 +10,9 @@ use App\Http\Controllers\Controller;
 class LocationController extends Controller
 {
     public function all(){
-        $all = DB::table('address')->get();
+        $all = DB::table('address')->orderBy('name')->get();
         $logo = Logo::select('logo_pic')->first();
-        return view('backend.address.all_address', compact('logo','all')); 
+        return view('backend.address.all_address', compact('logo','all'));
     }
     public function index(){
         $logo = Logo::select('logo_pic')->first();
@@ -45,7 +45,7 @@ class LocationController extends Controller
              return redirect()->route('all.address')->with($notification);
          }
 
-        
+
     }
     public function edit($id){
         $logo = Logo::select('logo_pic')->first();
@@ -101,6 +101,6 @@ class LocationController extends Controller
             );
             return redirect()->route('all.address')->with($notification);
         }
-            
+
     }
 }

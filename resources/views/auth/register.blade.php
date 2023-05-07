@@ -69,8 +69,8 @@
           </div>
         </div>
 
-        <label style="font-weight:500;">Attachment <span style="font-size: 0.8rem;">( Valid Id or Bio Data )</span></label>
-        <label style="font-weight: 400; color:red; font-size:0.8em;">( pdf / doc / docx / png / jpeg / jpg / gif / max:2MB )</label>
+        <label style="font-weight:500;">Attachment <span style="font-size: 0.8rem; font-style:italic;">( Valid Id or Bio Data )</span></label>
+        <label style="font-weight: 400; color:red; font-size:0.8em;">( <span style="color: black; font-style:italic;">Note:</span> pdf / doc / docx / png / jpeg / jpg / gif / max:2MB )</label>
         <div class="input-group mb-3">
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="attachment" name="attachment" required>

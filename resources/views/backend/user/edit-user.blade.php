@@ -23,7 +23,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Fullname</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="Enter your fullname" value="{{ $edit->name }}">
+                <input type="text" class="form-control" name="name" placeholder="Enter your fullname" value="{{ $edit->name }}" oninput="this.value=this.value.toUpperCase()">
             </div>
         </div>
         <div class="form-group row">
@@ -66,7 +66,7 @@
                     <option value="{{ $al->name }}">{{ $al->name }}</option>
                     @endforeach
                 </select>
-            </div>    
+            </div>
         </div>
 
         <div class="form-group row">
@@ -95,7 +95,7 @@
 {{-- card end --}}
             </div>
             <div class="col-lg-1">
-                
+
             </div>
         </div>
     </section>

@@ -19,9 +19,9 @@ class CategoryController extends Controller
 
     public function all(){
         $logo = Logo::select('logo_pic')->first();
-        $all = DB::table('category')->get();
-        
-        return view('backend.category.all_category', compact('logo','all')); 
+        $all = DB::table('category')->orderBy('categoryname')->get();
+
+        return view('backend.category.all_category', compact('logo','all'));
     }
 
     public function index(){
@@ -57,7 +57,7 @@ class CategoryController extends Controller
              return redirect()->route('allcategory')->with($notification);
          }
 
-        
+
     }
 
     public function edit($id){
@@ -96,11 +96,11 @@ class CategoryController extends Controller
          }
 
     }
-    
+
     public function delete($id){
         try {
             $delete = DB::table('category')->where('id', $id)->delete();
-    
+
             if ($delete) {
                 $notification= array
                 (

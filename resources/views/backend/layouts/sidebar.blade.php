@@ -62,15 +62,27 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa fa-user"></i>
               <p>
-                User
+                Users
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ URL::to('/all-user') }}" class="nav-link">
+                <a href="{{ route('alluser.admin') }}" class="nav-link">
                   <i class="far fa fa-user nav-icon"></i>
-                  <p>All User</p>
+                  <p>Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('alluser.freelancer') }}" class="nav-link">
+                  <i class="far fa fa-user nav-icon"></i>
+                  <p>Freelancers</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('alluser.employers') }}" class="nav-link">
+                  <i class="far fa fa-user nav-icon"></i>
+                  <p>Employers</p>
                 </a>
               </li>
               <li class="nav-item">

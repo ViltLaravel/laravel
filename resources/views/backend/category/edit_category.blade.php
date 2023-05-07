@@ -23,7 +23,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Job Title</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="categoryname" placeholder="Enter Category name" value="{{ $edit->categoryname }}">
+                <input type="text" class="form-control" name="categoryname" placeholder="Enter Category name" value="{{ $edit->categoryname }}" oninput="this.value=this.value.toUpperCase()">
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
 {{-- card end --}}
             </div>
             <div class="col-lg-1">
-                
+
             </div>
         </div>
     </section>

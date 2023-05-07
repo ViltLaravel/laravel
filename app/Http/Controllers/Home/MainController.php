@@ -47,7 +47,8 @@ class MainController extends Controller
             $logo = Logo::select('logo_pic')->first();
             $jobtitle = JobTitle::all();
             $freelancer_status = User::select('status')->where('role','freelancer')->first();
-            $all = JobTitle::all();
+            $all = JobTitle::all()->sortBy('categoryname');
+            // $address = Address::all()->sortBy('name');
             $address = Skills::all();
             $allergy = JobTitle::select('categoryname')->first();
 

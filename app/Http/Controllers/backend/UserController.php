@@ -20,13 +20,27 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function Alluser(){
-        // $all = DB::table('users')->get();
-        // return view('backend.user.all-user', compact('all'));
         $logo = Logo::select('logo_pic')->first();
-        $users = User::all();
+        $users = User::where('role', 'admin')->orderBy('created_at', 'asc')->get();
 
         return view('backend.user.all-user', compact('logo','users'));
+    }
+
+    public function employer() {
+        $logo = Logo::select('logo_pic')->first();
+        $users = User::where('role', 'employer')->orderBy('created_at', 'asc')->get();
+
+        return view('backend.user.employer-list', compact('logo', 'users'));
+    }
+
+
+    public function freelancer(){
+        $logo = Logo::select('logo_pic')->first();
+        $users = User::where('role', 'freelancer')->orderBy('created_at', 'asc')->get();
+
+        return view('backend.user.freelancer-list', compact('logo','users'));
     }
 
     //Add User & Insert User
@@ -77,7 +91,7 @@ class UserController extends Controller
                  'messege'=>'Successfully user inserted',
                  'alert-type'=>'success'
              );
-             return redirect()->route('alluser')->with($notification);
+             return redirect()->back()->with($notification);
          }
          else
          {
@@ -86,7 +100,7 @@ class UserController extends Controller
                  'messege'=>'Something in Wrong',
                  'alert-type'=>'error'
              );
-             return redirect()->route('alluser')->with($notification);
+             return redirect()->back()->with($notification);
          }
 
 
@@ -124,7 +138,7 @@ class UserController extends Controller
                  'messege'=>'Successfully user updated',
                  'alert-type'=>'success'
              );
-             return redirect()->route('alluser')->with($notification);
+             return redirect()->back()->with($notification);
          }
          else
          {
@@ -141,21 +155,21 @@ class UserController extends Controller
     public function DeleteUserIndex($id){
         try {
             $delete = DB::table('users')->where('id', $id)->delete();
-    
+
             if ($delete) {
                 $notification= array
                 (
                     'messege'=>'Successfully user deleted',
                     'alert-type'=>'success'
                 );
-                return redirect()->route('alluser')->with($notification);
+                return redirect()->back()->with($notification);
             } else {
                 $notification= array
                 (
                     'messege'=>'Something went wrong',
                     'alert-type'=>'error'
                 );
-                return redirect()->route('alluser')->with($notification);
+                return redirect()->back()->with($notification);
             }
         } catch (\Illuminate\Database\QueryException $ex) {
             $notification= array
@@ -163,7 +177,7 @@ class UserController extends Controller
                 'messege'=>'You do not have permission to perform this action',
                 'alert-type'=>'error'
             );
-            return redirect()->route('alluser')->with($notification);
+            return redirect()->back()->with($notification);
         }
     }
 
@@ -230,7 +244,8 @@ class UserController extends Controller
         $users = User::all();
         $user->verified = 1;
         $user->save();
-        return view('backend.user.all-user', compact('user','users','logo'));
+        // return view('backend.user.all-user', compact('user','users','logo'));
+        return redirect()->back()->with('user', 'users', 'logo');
     }
 
     public function update(Request $request){

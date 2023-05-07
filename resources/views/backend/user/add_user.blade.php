@@ -23,7 +23,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Fullname</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" placeholder="Enter your fullname" required>
+                <input type="text" class="form-control" name="name" placeholder="Enter your fullname" required oninput="this.value=this.value.toUpperCase()">
             </div>
         </div>
         <div class="form-group row">
@@ -36,7 +36,7 @@
             <label for="name" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
                 <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
-            </div> 
+            </div>
         </div>
 
         <div class="form-group row">
@@ -64,7 +64,7 @@
                     <option value="{{ $al->name }}">{{ $al->name }}</option>
                     @endforeach
                 </select>
-            </div>    
+            </div>
         </div>
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Date of Birth</label>
@@ -92,7 +92,7 @@
 {{-- card end --}}
             </div>
             <div class="col-lg-1">
-                
+
             </div>
         </div>
     </section>
