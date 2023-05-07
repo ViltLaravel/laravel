@@ -90,6 +90,7 @@ Route::get('/message', [App\Http\Controllers\backend\UserController::class, 'mes
 
 
 // HIRING MANAGEMENT
+Route::get('decline-message', [App\Http\Controllers\HiringController::class, 'declineMessage'])->name('decline.message');
 Route::get('hiring', [App\Http\Controllers\HiringController::class, 'get_freelancer'])->name('hiring.freelancer');
 Route::get('hiring/admin', [App\Http\Controllers\HiringController::class, 'get_admin'])->name('hiring.admin.transaction');
 Route::get('hiring/employeer', [App\Http\Controllers\HiringController::class, 'get_employeer'])->name('hiring.employeer');

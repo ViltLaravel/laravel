@@ -11,7 +11,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">All User</h3>
+              <h3 class="card-title">All Employers</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body" name="hagjong">
@@ -28,7 +28,7 @@
                   <th>Status</th>
                 </tr>
                 </thead>
-                
+
                 <tbody>
                   @foreach($employeer as $key => $employ)
                     <tr>

@@ -24,11 +24,11 @@ class ProfileController extends Controller
     }
 
     public function index ()
-    {   
+    {
         $logo = Logo::select('logo_pic')->first();
         $address = Address::all();
-        $jobtitle = JobTitle::all();
-        $skill = Skills::all();
+        $jobtitle = JobTitle::orderBy('categoryname')->get();
+        $skill = Skills::orderby('skills_name')->get();
         $skills = User::all();
         $myuser = User::select('address')
                 ->whereid(Auth::User()->id)
@@ -38,7 +38,7 @@ class ProfileController extends Controller
                             ->select('freelancer_skills.*','skills.*')
                             ->where('user_id', Auth::User()->id)
                             ->get();
-        
+
         $freelancerski = DB::table('category')
                             ->join('freelancerlists','category.id','=','freelancerlists.job_title_id')
                             ->select('freelancerlists.*','category.*')
@@ -88,9 +88,9 @@ class ProfileController extends Controller
             'job_title_id' => $request->category,
             // 'status' => $request-> status = '0',
             'user_id' => Auth::User()->id
-        ]); 
+        ]);
 
-        
+
 
         // The foreach loop iterates over the selected skills from the form and uses the updateOrCreate method to either update or create a new record in the FreelancerSkill table. The skill_id column is set to the ID of the selected skill, and the user_id column is set to the currently logged in user's ID.
         if (auth()->user()->role == 'freelancer') {
@@ -102,11 +102,11 @@ class ProfileController extends Controller
                                 'skill_id' => $skill,
                                 'user_id' => Auth::User()->id
             ]);
-            
+
             }
         }
-        
-           
+
+
         $notification= array
              (
                  'messege'=>'Successfully Settings Updated',

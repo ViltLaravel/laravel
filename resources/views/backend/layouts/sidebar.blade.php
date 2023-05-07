@@ -225,6 +225,35 @@
             </a>
           </li>
 
+
+          <li class="nav-header">MANAGE MESSAGE</li>
+          <li class="nav-item">
+            <a href="{{ route('decline.message') }}" class="nav-link">
+              <i class="nav-icon fa fa-envelope-open"></i>
+              <p>Inbox</p>
+                <span class="fa fa-comment"></span>
+                <span class="num">2</span>
+            </a>
+          </li>
+
+          <style>
+            span.fa-comment {
+            position: absolute;
+            font-size: 1.3em;
+            top: -0.3px;
+            color: red;
+            right: -6px;
+            }
+            span.num {
+            position: absolute;
+            font-size: 0.7em;
+            top: 1px;
+            color: #fff;
+            right: 2px;
+            font-weight: 600;
+            }
+          </style>
+
           @endif
 
           <li class="nav-item">

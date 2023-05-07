@@ -170,4 +170,10 @@ class HiringController extends Controller
             return view('backend.hiring.hiringAll.hiring_All');
     }
 
+    public function declineMessage()
+    {
+        $logo = Logo::select('logo_pic')->first();
+        return view('freelancer-reason.message', compact('logo'));
+    }
+
 }

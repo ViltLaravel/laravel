@@ -11,7 +11,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">All Freelancers</h3>
+              <h3 class="card-title">Inbox</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -21,43 +21,34 @@
                   <th>Serial</th>
                   <th>Freelancer Name</th>
                   <th>Freelancer Email</th>
-                  <th>Message</th>
+                  <th>Reason</th>
                   <th>Action</th>
-                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
-                  @foreach($freelancer as $key => $freelance)
+                  {{-- @foreach() --}}
                 <tr>
-                    <td>{{ $key+1 }}</td>
-                    <td>{{ $freelance->name }}</td>
-                    <td>{{ $freelance->email }}</td>
-                    <td>{{ $freelance->emp_message }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>
-                      <form action="{{ route('delete.employer') }}" method="POST">
+                      <form action="" method="POST">
                         @csrf
-                          <input type="hidden" name="decline" value="{{ $freelance->id }}">
+                          <input type="hidden" name="decline" value="">
                           <button style="border:none; color: red;" class="fa fa-trash-alt" type="submit"></button>
                       </form>
                     </td>
-                    <td>
-                      @if($freelance->status == 1)
-                      <button class="btn btn-success">Accepted</button>
-                      @else
-                      <button class="btn btn-warning">Pending</button>
-                      @endif
-                    </td>
                 </tr>
-                @endforeach
+                {{-- @endforeach --}}
                 </tbody>
                 <tfoot>
                     <tr>
                         <th>Serial</th>
                         <th>Freelancer Name</th>
                         <th>Freelancer Email</th>
-                        <th>Message</th>
+                        <th>Reason</th>
                         <th>Action</th>
-                        <th>Status</th>
                     </tr>
                 </tfoot>
               </table>
