@@ -232,7 +232,7 @@
               <i class="nav-icon fa fa-envelope-open"></i>
               <p>Inbox</p>
                 <span class="fa fa-comment"></span>
-                <span class="num">2</span>
+                <span class="num">{{ $messageCount }}</span>
             </a>
           </li>
 

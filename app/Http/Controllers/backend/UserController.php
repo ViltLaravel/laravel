@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Skills;
 use App\Models\Address;
 use App\Models\JobTitle;
+use App\Models\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -184,6 +185,13 @@ class UserController extends Controller
 
     public function updateProfile(Request $request)
     {
+        $freelancers = Response::join('users','users.id','=','response.user_id')
+        ->select('users.*','response.*')
+        ->where('response.employee_id', Auth::user()->id)
+        ->get();
+
+        $messageCount = $freelancers->count();
+
     // Validate the form data
     $request->validate([
         // Other validation rules
@@ -211,10 +219,17 @@ class UserController extends Controller
                  'alert-type'=>'success'
              );
         }
-        return redirect()->route('profile.update')->with($notification, $user);
+        return redirect()->route('profile.update')->with($notification, $user, $freelancers, $messageCount);
     }
 
     public function show(){
+        $freelancers = Response::join('users','users.id','=','response.user_id')
+        ->select('users.*','response.*')
+        ->where('response.employee_id', Auth::user()->id)
+        ->get();
+
+        $messageCount = $freelancers->count();
+
         $logo = Logo::select('logo_pic')->first();
         $address = Address::all();
         $jobtitle = JobTitle::all();
@@ -234,7 +249,7 @@ class UserController extends Controller
                         ->where('user_id', Auth::User()->id)
                         ->get();
 
-        return view('backend.profile.edit_profile',compact('freelancerski','freelancer_skill','logo','myuser','address', 'jobtitle', 'skills','skill'));
+        return view('backend.profile.edit_profile',compact('freelancerski','freelancer_skill','logo','myuser','address', 'jobtitle', 'skills','skill','freelancers','messageCount'));
     }
 
     public function verify(User $user)

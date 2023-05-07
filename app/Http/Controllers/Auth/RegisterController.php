@@ -108,7 +108,7 @@ class RegisterController extends Controller
             $user->name = $data['name'];
             $user->email = $data['email'];
             $user->password = Hash::make($data['password']);
-            
+
             if (isset($data['attachment'])) {
             // Get the file
             $file = $data['attachment'];

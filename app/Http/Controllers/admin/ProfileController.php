@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Skills;
 use App\Models\Address;
 use App\Models\JobTitle;
+use App\Models\Response;
 use Illuminate\Http\Request;
 use App\Models\FreelancerSkill;
 use Illuminate\Support\Facades\DB;
@@ -25,8 +26,15 @@ class ProfileController extends Controller
 
     public function index ()
     {
+        $freelancers = Response::join('users','users.id','=','response.user_id')
+        ->select('users.*','response.*')
+        ->where('response.employee_id', Auth::user()->id)
+        ->get();
+
+        $messageCount = $freelancers->count();
+
         $logo = Logo::select('logo_pic')->first();
-        $address = Address::all();
+        $address = Address::orderBY('name')->get();
         $jobtitle = JobTitle::orderBy('categoryname')->get();
         $skill = Skills::orderby('skills_name')->get();
         $skills = User::all();
@@ -44,7 +52,7 @@ class ProfileController extends Controller
                             ->select('freelancerlists.*','category.*')
                             ->where('user_id', Auth::User()->id)
                             ->get();
-        return view('backend.profile.edit_profile',compact('freelancerski','freelancer_skill','logo','myuser','address', 'jobtitle', 'skills','skill'));
+        return view('backend.profile.edit_profile',compact('freelancerski','freelancer_skill','logo','myuser','address', 'jobtitle', 'skills','skill','freelancers','messageCount'));
     }
 
     // password settings

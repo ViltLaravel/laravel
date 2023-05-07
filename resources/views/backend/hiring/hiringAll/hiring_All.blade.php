@@ -20,12 +20,13 @@
                                     <input type="hidden" value="{{ request('freelancer_id') }}" name="modalId">
 
                                     <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Attachments:</label>
+                                        <label for="recipient-name" class="col-form-label">Attachments: <span style="font-style: italic; font-weight:400; font-size:0.8em;">( Valid Id or Biodata )</span></label>
+                                        <label class="col-form-label" style="font-style: italic; color:red; font-weight:400; font-size: 0.8em;">( <span style="font-style: italic; color:black;">Note:</span> pdf / doc / docx / png / jpeg / jpg / gif | max:2MB)</label>
                                         <input style="border: 2px solid #d8e2dc; border-radius: 10px;" type="file" class="form-control" name="emp_attachment" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="message-text" class="col-form-label">Message:</label>
-                                        <textarea style="border: 2px solid #d8e2dc; border-radius: 10px;" name="message" class="form-control" id="message-text" placeholder="Enter your message here." required></textarea>
+                                        <textarea style="border: 2px solid #d8e2dc; border-radius: 10px;" name="message" class="form-control" id="message-text" placeholder="Enter your message here." required oninput="this.value = this.value.toUpperCase()"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="start_contract" class="col-form-label">Start Contract:</label>

@@ -25,6 +25,7 @@
                   <th>Message</th>
                   <th>Action</th>
                   <th>Action</th>
+                  <th>Delete</th>
                   <th>Status</th>
                 </tr>
                 </thead>
@@ -51,10 +52,13 @@
                         </form>
                       </td>
                       <td>
+                        <button data-toggle="modal" data-target="#term" class="btn btn-danger" type="submit">Decline</button>
+                      </td>
+                      <td>
                         <form action="{{ route('delete.employer') }}" method="POST">
                           @csrf
                           <input type="hidden" name="decline" value="{{ $employ->id }}">
-                          <button class="btn btn-danger" type="submit">Decline</button>
+                          <button class="btn btn-danger" type="submit">Trash</button>
                         </form>
                       </td>
                       <td>
@@ -77,6 +81,7 @@
                         <th>Message</th>
                         <th>Action</th>
                         <th>Action</th>
+                        <th>Delete</th>
                         <th>Status</th>
                     </tr>
                 </tfoot>
@@ -92,6 +97,34 @@
     </div>
     <!-- /.container-fluid -->
   </section>
+</div>
+
+ <!-- Modal -->
+ <div class="modal fade" id="term" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Cancel proposal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            @foreach ($employeer as $response )
+                <form action="{{ route('send.response') }}" method="post">
+                    @csrf
+                    <input type="hidden" value="{{ $response->employee_id }}" name="emp">
+
+                    <div class="form-group">
+                        <textarea style="border: 2px solid #d8e2dc; border-radius: 10px;" name="message" class="form-control" id="message-text" placeholder="Enter your message here." required oninput="this.value = this.value.toUpperCase()"></textarea>
+                    </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Send</button>
+                        </div>
+                </form>
+            @endforeach
+    </div>
+    </div>
 </div>
 
   @endsection

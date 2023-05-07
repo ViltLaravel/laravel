@@ -96,8 +96,10 @@ Route::get('hiring/admin', [App\Http\Controllers\HiringController::class, 'get_a
 Route::get('hiring/employeer', [App\Http\Controllers\HiringController::class, 'get_employeer'])->name('hiring.employeer');
 Route::get('hiring/freelancer', [App\Http\Controllers\HiringController::class, 'index'])->name('hiring.index');
 Route::post('hiring', [App\Http\Controllers\HiringController::class, 'sendMessage'])->name('send.message');
+Route::post('response-decline', [App\Http\Controllers\HiringController::class, 'response'])->name('send.response');
 Route::post('hiring/accept', [App\Http\Controllers\HiringController::class, 'acceptEmployeer'])->name('accept.employer');
 Route::post('hiring/declined', [App\Http\Controllers\HiringController::class, 'delete'])->name('delete.employer');
+Route::post('response-decline-employer', [App\Http\Controllers\HiringController::class, 'deleteResponse'])->name('delete.response');
 
 // RATING OF FREELANCER
 Route::get('rating', [App\Http\Controllers\FreelancerController::class, 'rating'])->name('rating.index');

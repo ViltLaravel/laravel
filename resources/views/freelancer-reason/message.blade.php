@@ -26,21 +26,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                  {{-- @foreach() --}}
+                  @foreach($freelancer as $key => $response)
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ $key+1 }}</td>
+                    <td>{{ $response->name }}</td>
+                    <td>{{ $response->email }}</td>
+                    <td>{{ $response->emp_message }}</td>
                     <td>
-                      <form action="" method="POST">
+                      <form action="{{ route('delete.response') }}" method="POST">
                         @csrf
-                          <input type="hidden" name="decline" value="">
-                          <button style="border:none; color: red;" class="fa fa-trash-alt" type="submit"></button>
+                          <input type="hidden" name="decline" value="{{ $response->id }}">
+                          <button style="border:none; color: red;" class="fa fa-trash-alt"></button>
                       </form>
                     </td>
                 </tr>
-                {{-- @endforeach --}}
+                @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
