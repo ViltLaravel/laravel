@@ -4,7 +4,7 @@
     <div style="font-family: 'Jost', sans-serif;" class="container-fluid p-0">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="backend_1/img/bg-3.jpg" alt="">
+                <img class="img-fluid" src="backend_1/img/bg1.png" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                     style="background: rgba(43, 57, 64, .5);">
                     <div class="container">
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="backend_1/img/bg-4.jpg" alt="">
+                <img class="img-fluid" src="backend_1/img/bg2.png" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                     style="background: rgba(43, 57, 64, .5);">
                     <div class="container">
@@ -149,17 +149,17 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="row g-0 about-bg rounded overflow-hidden" id="image-slider">
                         <div class="col-6 text-start">
-                            <img style="border-radius: 10px;" class="img-fluid" src="{{ asset('backend_1/img/im_1.jpeg') }}">
+                            <img style="border-radius: 10px;" class="img-fluid" src="{{ asset('backend_1/img/1.png') }}">
                         </div>
                         <div class="col-6 text-start">
-                            <img class="img-fluid" src="{{ asset('backend_1/img/img_2.jpeg') }}"
+                            <img class="img-fluid" src="{{ asset('backend_1/img/2.png') }}"
                             style="border-radius: 10px;">
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid" src="{{ asset('backend_1/img/img_3.jpeg') }}" style="border-radius: 10px;">
+                            <img class="img-fluid" src="{{ asset('backend_1/img/3.png') }}" style="border-radius: 10px;">
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid w-100" src="{{ asset('backend_1/img/img5.jpeg') }}" style="border-radius: 10px;">
+                            <img class="img-fluid w-100" src="{{ asset('backend_1/img/4.png') }}" style="border-radius: 10px;">
                         </div>
                     </div>
                 </div>
