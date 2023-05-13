@@ -62,6 +62,9 @@ class MainController extends Controller
                 $query->select('category.*','freelancerlists.*');
             }])->get();
 
+            if (!$this->checkInternetConnection()) {
+                return view('404.404');
+            }
 
             if($freelancer_status['status'] == 0)
             {
@@ -91,6 +94,18 @@ class MainController extends Controller
                 $countme = $countme->take(4);
             }
         return view('backend_home.dashboard', compact('all','freelists','showAll','allergy', 'countme', 'freelancers', 'logo', 'freelancer', 'jobtitle','red1', 'show1', 'address'));
+        }
+
+        // For the connection internet function
+        private function checkInternetConnection()
+        {
+            $connected = @fsockopen("www.example.com", 80);
+            if ($connected) {
+                fclose($connected);
+                return true;
+            }
+
+            return false;
         }
 
         public function getFreelancersByCategory($category_id)

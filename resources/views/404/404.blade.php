@@ -14,6 +14,9 @@
 		<div class="col-sm-12 ">
 		<div class="col-sm-10 col-sm-offset-1  text-center">
 		<div class="four_zero_four_bg">
+            <video autoplay muted loop>
+                <source src="{{ asset('404/404_video/404.mp4') }}" type="video/mp4">
+            </video>
 			<h1 class="text-center " style="text-align: center;">404</h1>
 
 
@@ -24,7 +27,7 @@
 		Look like you're lost
 		</h3>
 
-		<p>the page you are looking for not avaible!</p>
+		<p>The page you are trying to access is unavailable.</p>
 
 		<a href="/">
             <button class="link_404">Go to Home</button>

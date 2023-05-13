@@ -9,9 +9,9 @@
 
 .page_404  img{ width:100%;}
 
-.four_zero_four_bg{
+/* .four_zero_four_bg{
 
- background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    background-image: url('/public/404/404_video/404.mp4');
     height: 400px;
     background-position: center;
  }
@@ -23,6 +23,21 @@
 
 .four_zero_four_bg h3{
 	font-size:80px;
+} */
+
+.four_zero_four_bg {
+    height: 400px;
+    background-position: center;
+    position: relative;
+}
+
+.four_zero_four_bg video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .link_404{
