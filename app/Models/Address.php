@@ -12,4 +12,9 @@ class Address extends Model
     protected $fillable = [
         'name',
     ];
+
+
+    public function getAddress(){
+        return $this->all();
+    }
 }

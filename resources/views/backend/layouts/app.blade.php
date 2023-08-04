@@ -129,20 +129,20 @@
 <script src="{{ asset('404/404.js') }}"></script>
 
 <script>
-  @if(Session::has('messege'))
+  @if(Session::has('message'))
     var type="{{Session::get('alert-type','info')}}"
     switch(type){
         case 'info':
-             toastr.info("{{ Session::get('messege') }}");
+             toastr.info("{{ Session::get('message') }}");
              break;
         case 'success':
-            toastr.success("{{ Session::get('messege') }}");
+            toastr.success("{{ Session::get('message') }}");
             break;
         case 'warning':
-           toastr.warning("{{ Session::get('messege') }}");
+           toastr.warning("{{ Session::get('message') }}");
             break;
         case 'error':
-            toastr.error("{{ Session::get('messege') }}");
+            toastr.error("{{ Session::get('message') }}");
             break;
     }
   @endif

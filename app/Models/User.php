@@ -54,16 +54,53 @@ class User extends Authenticatable
         'verified' => 'boolean',
     ];
 
+    public function showAdmin() {
+        return $this->select('*')->where('role', '=', 'admin')->get();
+    }
+
+    public function showEmployer(){
+        return $this->select('*')->where('role', '=', 'employer' )->get();
+    }
+
+    public function showFreelancer(){
+        return $this->select('*')->where('role', '=', 'freelancer' )->get();
+    }
+
+    public function userStatus(){
+        return $this->select('status')->first();
+    }
+
+    public function insertUser($data){
+        return $this->create($data);
+    }
+
+    public function editUser($id){
+        return $this->select('*')->whereid($id)->first();
+    }
+
+    public function updateUser($id, $data){
+        $update = $this->findOrFail($id);
+        $update->update($data);
+
+        return $update;
+    }
+
+    public function deleteUser($id){
+        $delete = $this->find($id);
+        $delete->delete($id);
+
+        return $delete;
+    }
+
+
+
+
+
 
     public function freelancer_skills()
     {
         return $this->hasMany(FreelancerSkill::class);
     }
-
-    // public function freelancerlist()
-    // {
-    //     return $this->hasMany(freelancerlists::class);
-    // }
 
 
     public function freelancerlists()

@@ -12,4 +12,8 @@ class Logo extends Model
     protected $fillable = [
         'logo_pic',
     ];
+
+    public function getLogo(){
+        return $this->select('logo_pic')->first();
+    }
 }

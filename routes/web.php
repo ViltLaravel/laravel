@@ -25,15 +25,22 @@ Route::post('/all-freelancer', [App\Http\Controllers\Home\MainController::class,
 Route::get('/freelancerss/{id}', [App\Http\Controllers\Home\MainController::class, 'showFreelancers'])->name('search.result');
 Route::get('/freelancer/category/{categoryId}', [App\Http\Controllers\Home\MainController::class, 'getFreelancersByCategory']);
 
-// USER MANAGEMENT
-Route::get('/all-admin-list', [App\Http\Controllers\backend\UserController::class, 'Alluser'])->name('alluser.admin');
-Route::get('/all-employer-list', [App\Http\Controllers\backend\UserController::class, 'employer'])->name('alluser.employers');
-Route::get('/all-freelancer-list', [App\Http\Controllers\backend\UserController::class, 'freelancer'])->name('alluser.freelancer');
-Route::get('/add-user-index', [App\Http\Controllers\backend\UserController::class, 'AllUserIndex'])->name('AllUserIndex');
-Route::post('/insert-user', [App\Http\Controllers\backend\UserController::class, 'InsertUserIndex'])->name('InsertUser');
-Route::get('/edit-user/{id}', [App\Http\Controllers\backend\UserController::class, 'EditUserIndex'])->name('EditUser');
-Route::post('/update-user/{id}', [App\Http\Controllers\backend\UserController::class, 'UpdateUserIndex'])->name('UpdateUser');
-Route::get('/delete-user/{id}', [App\Http\Controllers\backend\UserController::class, 'DeleteUserIndex'])->name('DeleteUser');
+// USER MANAGEMENT BY ADMIN
+Route::controller(App\Http\Controllers\backend\UserController::class)->group(function () {
+    // USER MANAGEMENT BY ADMIN
+    Route::get('/all-admin-list', 'admin')->name('alluser.admin');
+    Route::get('/all-employer-list', 'employer')->name('alluser.employers');
+    Route::get('/all-freelancer-list', 'freelancer')->name('alluser.freelancer');
+    Route::get('/add-user-index', 'add')->name('AllUserIndex');
+    Route::post('/insert-user', 'insertUser')->name('InsertUser');
+    Route::get('/edit-user/{id}', 'editUser')->name('EditUser');
+    Route::post('/update-user/{id}', 'updateUser')->name('UpdateUser');
+    Route::get('/delete-user/{id}', 'deleteUser')->name('DeleteUser');
+
+    // VERIFY MESSAGE
+    Route::patch('/admin/users/{user}', 'verify')->name('admin.verify');
+    Route::get('/message', 'messagev')->name('admin.verify.message');
+});
 
 // JOB TITLE MANAGEMENT
 Route::get('/all-jobtitle', [App\Http\Controllers\admin\CategoryController::class, 'all'])->name('allcategory');
@@ -83,11 +90,6 @@ Route::get('/employer/{id}', [App\Http\Controllers\Home\PageController::class, '
 Route::middleware(['verify'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
-
-// VERIFY MESSAGE
-Route::patch('/admin/users/{user}', [App\Http\Controllers\backend\UserController::class, 'verify'])->name('admin.verify');
-Route::get('/message', [App\Http\Controllers\backend\UserController::class, 'messagev'])->name('admin.verify.message');
-
 
 // HIRING MANAGEMENT
 Route::get('decline-message', [App\Http\Controllers\HiringController::class, 'declineMessage'])->name('decline.message');
