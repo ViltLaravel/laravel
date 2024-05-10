@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->unsignedBigInteger('job_title_id')->nullable();
+            $table->foreign('job_title_id')->references('id')->on('category');
             $table->timestamps();
         });
     }

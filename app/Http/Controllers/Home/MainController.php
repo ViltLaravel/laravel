@@ -59,7 +59,7 @@ class MainController extends Controller
 
             $freelists = User::with(['freelancerlists' => function($query){
                 $query->join('category','category.id','=','freelancerlists.job_title_id');
-                $query->select('category.*','freelancerlists.*');
+                $query->select('category.*','freelancerlists.*'); 
             }])->get();
 
             if (!$this->checkInternetConnection()) {
