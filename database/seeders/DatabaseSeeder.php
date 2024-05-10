@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Creating dummy company logo
+        \App\Models\Logo::create([
+            'logo_pic' => 'logo.png'
+        ]);
+
         // Create dummy users
         \App\Models\User::create([
             'name' => 'Nicole Amoguis',
