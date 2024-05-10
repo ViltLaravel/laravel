@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             'gender' => 'Male',
             'address' => 'Tagbilaran',
             'phone' => '09460320435',
+            'profile_pic' => 'img_prof.jpg',
             'status' => '0',
             'verified' => 1
         ]);
@@ -40,6 +41,8 @@ class DatabaseSeeder extends Seeder
             'address' => 'Carmen',
             'salary' => '100',
             'phone' => '09460320435',
+            'resume' => 'resume.pdf',
+            'profile_pic' => 'img_prof.jpg',
             'status' => '0',
             'verified' => 1
         ]);
@@ -54,6 +57,8 @@ class DatabaseSeeder extends Seeder
             'gender' => 'Male',
             'address' => 'Pilar',
             'phone' => '09460320435',
+            'resume' => 'resume.pdf',
+            'profile_pic' => 'img_prof.jpg',
             'status' => '0',
             'verified' => 1
         ]);
@@ -116,6 +121,71 @@ class DatabaseSeeder extends Seeder
             'user_id' => 2,
             'job_title_id' => 1
         ]);
+
+        // Create skills of freelancer
+        \App\Models\FreelancerSkill::create([
+            'user_id' => 2,
+            'skill_id' => 1
+        ]);
+
+        \App\Models\FreelancerSkill::create([
+            'user_id' => 2,
+            'skill_id' => 2
+        ]);
+
+        \App\Models\FreelancerSkill::create([
+            'user_id' => 2,
+            'skill_id' => 3
+        ]);
+
+        // Create a proposal
+        \App\Models\Hiring::create([
+            'user_id' => 2,
+            'employee_id' => 3,
+            // 'emp_attachment' => public_path('emp_Attachment/test.docs'),
+            'emp_attachment' => 'test.docs',
+            'emp_message' => "I'M INTERESTED IN YOUR SKILLS",
+            'status' => 1,
+            'start_contract' => '2024-05-10',
+            'end_contract' => '2024-05-10'
+        ]);
+
+        // Employer commented to freelancer
+        \App\Models\FreelancerComment::create([
+            'user_id' => 2,
+            'employer_id' => 3,
+            'employer_feedback' => 'GREATE FREELANCER. KEEP IT UP.',
+            'employer_rating' => 5,
+            'status' => 1,
+            'job_title_id' => 3,
+        ]);
+
+        \App\Models\FreelancerComment::create([
+            'user_id' => 2,
+            'employer_id' => 3,
+            'employer_feedback' => 'NICE WORK. KEEP IT UP.',
+            'employer_rating' => 4,
+            'status' => 1,
+            'job_title_id' => 2,
+        ]);
+
+        \App\Models\FreelancerComment::create([
+            'user_id' => 2,
+            'employer_id' => 3,
+            'employer_feedback' => 'BEST OF ALL. KEEP IT UP.',
+            'employer_rating' => 4,
+            'status' => 1,
+            'job_title_id' => 1,
+        ]);
+
+        // Freelancer commented on employer
+        \App\Models\EmployerComment::create([
+            'user_id' => 3,
+            'freelancer_id' => 2,
+            'freelancer_feedback' => 'TRUSTED EMPLOYER. KEEP IT UP.',
+            'freelancer_rating' => 4,
+        ]);
+
 
     }
 }
