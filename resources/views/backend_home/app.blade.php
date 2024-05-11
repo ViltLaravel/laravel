@@ -17,7 +17,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -34,8 +35,10 @@
     <link href="{{ asset('backend_1/css/style.css') }}" rel="stylesheet">
 
     <!-- Slider start -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,77 +47,81 @@
 
 
 
-<style>
-    /* Define the typing animation */
-    @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-    }
+    <style>
+        /* Define the typing animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
 
-    /* Apply the animation to the text */
-    #typewriter {
-        overflow: hidden;
-        border-right: 2px solid;
-        white-space: nowrap;
-        animation: typing 3s steps(30,end) forwards infinite;
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Apply the animation to the text */
+        #typewriter {
+            overflow: hidden;
+            border-right: 2px solid;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end) forwards infinite;
+            animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
 
 
-    .cssbuttons-io-button {
-  background: #a3b18a;
-  color: white;
-  font-family: inherit;
-  padding: 0.35em;
-  padding-left: 1.2em;
-  font-size: 17px;
-  font-weight: 500;
-  border-radius: 50px;
-  border: none;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  box-shadow: inset 0 0 1.6em -0.6em #a3b18a;
-  overflow: hidden;
-  position: relative;
-  height: 2.8em;
-  padding-right: 3.3em;
-}
+        .cssbuttons-io-button {
+            background: #a3b18a;
+            color: white;
+            font-family: inherit;
+            padding: 0.35em;
+            padding-left: 1.2em;
+            font-size: 17px;
+            font-weight: 500;
+            border-radius: 50px;
+            border: none;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            box-shadow: inset 0 0 1.6em -0.6em #a3b18a;
+            overflow: hidden;
+            position: relative;
+            height: 2.8em;
+            padding-right: 3.3em;
+        }
 
-.cssbuttons-io-button .icon {
-  background: white;
-  margin-left: 1em;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.2em;
-  width: 2.2em;
-  border-radius: 50px;
-  box-shadow: 0.1em 0.1em 0.6em 0.2em #a3b18a;
-  right: 0.3em;
-  transition: all 0.3s;
-}
+        .cssbuttons-io-button .icon {
+            background: white;
+            margin-left: 1em;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2.2em;
+            width: 2.2em;
+            border-radius: 50px;
+            box-shadow: 0.1em 0.1em 0.6em 0.2em #a3b18a;
+            right: 0.3em;
+            transition: all 0.3s;
+        }
 
-.cssbuttons-io-button:hover .icon {
-  width: calc(100% - 0.6em);
-}
+        .cssbuttons-io-button:hover .icon {
+            width: calc(100% - 0.6em);
+        }
 
-.cssbuttons-io-button .icon svg {
-  width: 1.1em;
-  transition: transform 0.3s;
-  color: #a3b18a;
-}
+        .cssbuttons-io-button .icon svg {
+            width: 1.1em;
+            transition: transform 0.3s;
+            color: #a3b18a;
+        }
 
-.cssbuttons-io-button:hover .icon svg {
-  transform: translateX(0.1em);
-}
+        .cssbuttons-io-button:hover .icon svg {
+            transform: translateX(0.1em);
+        }
 
-.cssbuttons-io-button:active .icon {
-  transform: scale(0.95);
-}
-
-</style>
+        .cssbuttons-io-button:active .icon {
+            transform: scale(0.95);
+        }
+    </style>
 
 
 </head>
@@ -130,30 +137,32 @@
         color: #fff;
     }
 </style>
+
 <body>
     <div class="container-xxl bg-white p-0">
 
-            <!-- loading -->
-                @include('backend_home.loading')
-            <!-- /.loading -->
+        <!-- loading -->
+        @include('backend_home.loading')
+        <!-- /.loading -->
 
-            <!-- corousel -->
-                @include('backend_home.navbar')
-            <!-- /.carousel -->
+        <!-- corousel -->
+        @include('backend_home.navbar')
+        <!-- /.carousel -->
 
-            <!-- Navbar -->
-                {{-- @include('backend_home.carousel') --}}
-            <!-- /.navbar -->
+        <!-- Navbar -->
+        {{-- @include('backend_home.carousel') --}}
+        <!-- /.navbar -->
 
-            {{-- dashboard --}}
-                @yield('content')
+        {{-- dashboard --}}
+        @yield('content')
 
-             <!-- Footer -->
-                @include('backend_home.footer')
-             <!-- /.Footer -->
+        <!-- Footer -->
+        @include('backend_home.footer')
+        <!-- /.Footer -->
 
         <!-- Back to Top -->
-        <a href="#" style="border-radius: 50%; border-color: white" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <a href="#" style="border-radius: 50%; border-color: white"
+            class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
@@ -174,9 +183,9 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     @if (session('success'))
-    <script>
-        swal("Success!", "{{ session('success') }}", "success");
-    </script>
+        <script>
+            swal("Success!", "{{ session('success') }}", "success");
+        </script>
     @endif
 
     @if (session('warning'))
@@ -190,59 +199,72 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
     <script>
-        $(document).ready(function(){
-        $('#image-slider').slick({
-            autoplay: true,
-            autoplaySpeed: 2000,
-            dots: true,
-            arrows: false
-        });
+        $(document).ready(function() {
+            $('#image-slider').slick({
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                arrows: false
+            });
         });
     </script>
 
     {{-- RATING UI --}}
     <script>
         function updateRating(value) {
-        var stars = document.querySelectorAll('#star-rating label');
-        for (var i = 0; i < stars.length; i++) {
-            if (i < value) {
-            stars[i].classList.add('selected');
-            } else {
-            stars[i].classList.remove('selected');
+            var stars = document.querySelectorAll('#star-rating label');
+            for (var i = 0; i < stars.length; i++) {
+                if (i < value) {
+                    stars[i].classList.add('selected');
+                } else {
+                    stars[i].classList.remove('selected');
+                }
             }
-        }
         }
     </script>
     {{-- RATING UI --}}
 
 
 
-{{-- FREELANCER LIST SECTION --}}
-<script>
-    // START OF CLICK CATEGORY JOBTITLE
-    $(document).ready(function() {
-    $('.fetch-data-btn').click(function() {
-        const categoryId = $(this).val();
-        // alert(categoryId)
-        $.ajax({
-            url: `http://127.0.0.1:8000/freelancer/category/${categoryId}`, // Modified URL with categoryId parameter
-            type: 'GET',
-            success: function(data) {
-                $('.samplc').empty();
-                // Loop through the data and create the HTML elements
-                $.each(data, function(index, category) {
-                    $.each(category.freelancerlists, function(index, freelancer) {
-                        console.log(freelancer);
-                        const profilePic = freelancer.profile_pic == null ? "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" : "{{ asset('uploads/') }}/" + freelancer.profile_pic;
-                        const emphiring = freelancer.hstatus == 1 ? "Contracted" : "Hire me";
-                        const disabledAttr = freelancer.hstatus == 1 ? "disabled" : "";
-                        const colorAttr = freelancer.hstatus == 1 ? "danger" : "primary";
-                        const contractAttr = freelancer.contract_period == null ? "Available" : freelancer.contract_period;
-                        const disabledAtt = freelancer.hstatus == 1 ? "pointer-events: none; opacity: 1;" : "";
-                        const salary = freelancer.salary == null ? `<span style="color: red; font-weight: bold;">₱</span> Negotiable` : `<span style="color: red; font-weight: bold;">₱ ${freelancer.salary}.00</span>/per hour`;
+    {{-- FREELANCER LIST SECTION --}}
+    <script>
+        // START OF CLICK CATEGORY JOBTITLE
+        $(document).ready(function() {
+            $('.fetch-data-btn').click(function() {
+                const categoryId = $(this).val();
+                // alert(categoryId)
+                $.ajax({
+                    url: `http://127.0.0.1:8000/freelancer/category/${categoryId}`, // Modified URL with categoryId parameter
+                    type: 'GET',
+                    success: function(data) {
+                        $('.samplc').empty();
+                        // Loop through the data and create the HTML elements
+                        $.each(data, function(index, category) {
+                            $.each(category.freelancerlists, function(index,
+                            freelancer) {
+                                console.log(freelancer);
+                                const profilePic = freelancer.profile_pic ==
+                                    null ?
+                                    "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" :
+                                    "{{ asset('uploads/') }}/" + freelancer
+                                    .profile_pic;
+                                const emphiring = freelancer.hstatus == 1 ?
+                                    "Contracted" : "Hire me";
+                                const disabledAttr = freelancer.hstatus == 1 ?
+                                    "disabled" : "";
+                                const colorAttr = freelancer.hstatus == 1 ?
+                                    "danger" : "primary";
+                                const contractAttr = freelancer
+                                    .contract_period == null ? "Available" :
+                                    freelancer.contract_period;
+                                const disabledAtt = freelancer.hstatus == 1 ?
+                                    "pointer-events: none; opacity: 1;" : "";
+                                const salary = freelancer.salary == null ?
+                                    `<span style="color: red; font-weight: bold;">₱</span> Negotiable` :
+                                    `<span style="color: red; font-weight: bold;">₱ ${freelancer.salary}.00</span>/per hour`;
 
 
-                        const html = `
+                                const html = `
                             <div  style="background-color: #ccd5ae; border-radius: 10px;" id="freelancer${category.id}" class="tab-pane fade show p-0 limitfl">
                                 <div class="job-item p-4 mb-4">
                                     <div class="row g-4">
@@ -286,28 +308,28 @@
                                 </div>
                             </div>
                         `;
-                        console.log(freelancer.id)
-                        // Append the HTML to the tabcontent
-                        $('.samplc').append(html);
-                    });
+                                console.log(freelancer.id)
+                                // Append the HTML to the tabcontent
+                                $('.samplc').append(html);
+                            });
+                        });
+                    }, // Added closing bracket for the success property
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                    }
                 });
-            }, // Added closing bracket for the success property
-            error: function(xhr, textStatus, errorThrown) {
-                console.log(errorThrown);
-            }
+            });
         });
-    });
-});
-// END OF CLICK JOBTITLE
+        // END OF CLICK JOBTITLE
 
 
- // START OF FREELANCER MODAL
-  $('.samplc').on('click', '#btnModal', function() {
-    var modalId = $(this).val();
-    // console.log("Freelancer ID:", freelancerId);
-    // alert(modalId)
-    // Use the freelancerId value in your AJAX request, if needed
-    $.ajax({
+        // START OF FREELANCER MODAL
+        $('.samplc').on('click', '#btnModal', function() {
+            var modalId = $(this).val();
+            // console.log("Freelancer ID:", freelancerId);
+            // alert(modalId)
+            // Use the freelancerId value in your AJAX request, if needed
+            $.ajax({
                 url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
                 type: 'GET',
                 success: function(data) {
@@ -322,20 +344,24 @@
                         // $.each(freelancer.freelancer_skills, function(index, skills) {
                         //     console.log(skills.skills_name) //skills
                         //     // console.log(freelancer)// Freelancers
-                        skillsString += `<span style="font-size:.7em; margin-bottom: .5rem; margin-right: 2rem;" class="btn btn-primary">${skills.skills_name}</span>`;
+                        skillsString +=
+                            `<span style="font-size:.7em; margin-bottom: .5rem; margin-right: 2rem;" class="btn btn-primary">${skills.skills_name}</span>`;
                         // });
 
                     });
 
-                       var resumeBtn;
-                        if (data[0].resume === null) {
-                            resumeBtn = '<button class="btn btn-danger">No Resume</button>';
-                        } else {
-                            resumeBtn = '<a href="{{ asset('resume/') }}/' + data[0].resume + '"><button class="btn btn-primary">Download CV</button></a>';
-                        }
+                    var resumeBtn;
+                    if (data[0].resume === null) {
+                        resumeBtn = '<button class="btn btn-danger">No Resume</button>';
+                    } else {
+                        resumeBtn = '<a href="{{ asset('resume/') }}/' + data[0].resume +
+                            '"><button class="btn btn-primary">Download CV</button></a>';
+                    }
 
-                    const profilePic = data[0].profile_pic == null ? "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" : "{{ asset('uploads/') }}/" + data[0].profile_pic;
-                            $('#modalView').append(`
+                    const profilePic = data[0].profile_pic == null ?
+                        "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" :
+                        "{{ asset('uploads/') }}/" + data[0].profile_pic;
+                    $('#modalView').append(`
                             <div class="container py-5">
                             <div class="row">
                             <div class="col-lg-4">
@@ -473,7 +499,7 @@
                         </div>
                             </div>
                             `);
-                            $('#modalContent').modal('show');
+                    $('#modalContent').modal('show');
 
 
                 }, // Added closing bracket for the success property
@@ -481,79 +507,94 @@
                     console.log(errorThrown);
                 }
             });
-  });
-    // END OF FREELANCER MODAL
-</script>
+        });
+        // END OF FREELANCER MODAL
+    </script>
 
 
-{{-- START OF SHOW BUTTON --}}
-<script>
-     $(".limitfl:nth-child(n+3)").hide();
-$(document).ready(function() {
-  $("#show-more-btn").click(function() {
-    var buttonText = $(this).text();
-
-    if (buttonText === "Show More") {
-      $(".limitfl:nth-child(n+3)").show();
-      $(this).removeClass("btn-outline-primary").addClass("btn-outline-danger").text("Show Less");
-    } else {
-      $(".limitfl:nth-child(n+3)").hide();
-      $(this).removeClass("btn-outline-danger").addClass("btn-outline-primary").text("Show More");
-    }
-  });
-});
-
-</script>
-{{-- END OF SHOW BUTTON --}}
-
-{{-- START OF SHOW BUTTON  CATEGORY --}}
-<script>
-    $(".limitfl:nth-child(n+3)").hide();
-$(document).ready(function() {
- $("#show-btn").click(function() {
-   var buttonText = $(this).text();
-
-   if (buttonText === "Show More") {
-     $(".limitfl:nth-child(n+3)").show();
-     $(this).removeClass("btn-outline-primary").addClass("btn-outline-danger").text("Show Less");
-   } else {
-     $(".limitfl:nth-child(n+3)").hide();
-     $(this).removeClass("btn-outline-danger").addClass("btn-outline-primary").text("Show More");
-   }
- });
-});
-
-</script>
-{{-- END OF SHOW BUTTON CATEGORY --}}
-
-
-{{-- START OF SEARCH ENDPOINT --}}
-<script>
+    {{-- START OF SHOW BUTTON --}}
+    <script>
+        $(".limitfl:nth-child(n+3)").hide();
         $(document).ready(function() {
-        $('#myButton').click(function() {
-            var selectedValue = $('#mySelect').val();
-            // alert(categoryId)
-            $.ajax({
-                url: `http://127.0.0.1:8000/freelancerss/${selectedValue}`, // Modified URL with categoryId parameter
-                type: 'GET',
-                success: function(data) {
-                    // console.log(data);
-                    // Clear the tabcontent before appending the new data
-                    // console.log(data[0].freelancerlists)
-                    $('.freelancer').empty();
-                    // Loop through the data and create the HTML elements
-                    $.each(data, function(index, category) {
-                        $.each(category.freelancerlists, function(index, freelancer) {
-                            // console.log(freelancer);
-                            const profilePic = freelancer.profile_pic == null ? "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" : "{{ asset('uploads/') }}/" + freelancer.profile_pic;
-                            const emphiring = freelancer.hstatus == 1 ? "Contracted" : "Hire me";
-                            const disabledAttr = freelancer.hstatus == 1 ? "disabled" : "";
-                            const colorAttr = freelancer.hstatus == 1 ? "danger" : "primary";
-                            const contractAttr = freelancer.contract_period == null ? "Available" : freelancer.contract_period;
-                            const disabledAtt = freelancer.hstatus == 1 ? "pointer-events: none; opacity: 1;" : "";
-                            const salary = freelancer.salary == null ? `<span style="color: red; font-weight: bold;">₱</span> Negotiable` : `<span style="color: red; font-weight: bold;">₱ ${freelancer.salary}.00</span>/per hour`;
+            $("#show-more-btn").click(function() {
+                var buttonText = $(this).text();
 
-                            const html = `
+                if (buttonText === "Show More") {
+                    $(".limitfl:nth-child(n+3)").show();
+                    $(this).removeClass("btn-outline-primary").addClass("btn-outline-danger").text(
+                        "Show Less");
+                } else {
+                    $(".limitfl:nth-child(n+3)").hide();
+                    $(this).removeClass("btn-outline-danger").addClass("btn-outline-primary").text(
+                        "Show More");
+                }
+            });
+        });
+    </script>
+    {{-- END OF SHOW BUTTON --}}
+
+    {{-- START OF SHOW BUTTON  CATEGORY --}}
+    <script>
+        $(".limitfl:nth-child(n+3)").hide();
+        $(document).ready(function() {
+            $("#show-btn").click(function() {
+                var buttonText = $(this).text();
+
+                if (buttonText === "Show More") {
+                    $(".limitfl:nth-child(n+3)").show();
+                    $(this).removeClass("btn-outline-primary").addClass("btn-outline-danger").text(
+                        "Show Less");
+                } else {
+                    $(".limitfl:nth-child(n+3)").hide();
+                    $(this).removeClass("btn-outline-danger").addClass("btn-outline-primary").text(
+                        "Show More");
+                }
+            });
+        });
+    </script>
+    {{-- END OF SHOW BUTTON CATEGORY --}}
+
+
+    {{-- START OF SEARCH ENDPOINT --}}
+    <script>
+        $(document).ready(function() {
+            $('#myButton').click(function() {
+                var selectedValue = $('#mySelect').val();
+                // alert(categoryId)
+                $.ajax({
+                    url: `http://127.0.0.1:8000/freelancerss/${selectedValue}`, // Modified URL with categoryId parameter
+                    type: 'GET',
+                    success: function(data) {
+                        // console.log(data);
+                        // Clear the tabcontent before appending the new data
+                        // console.log(data[0].freelancerlists)
+                        $('.freelancer').empty();
+                        // Loop through the data and create the HTML elements
+                        $.each(data, function(index, category) {
+                            $.each(category.freelancerlists, function(index,
+                            freelancer) {
+                                // console.log(freelancer);
+                                const profilePic = freelancer.profile_pic ==
+                                    null ?
+                                    "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" :
+                                    "{{ asset('uploads/') }}/" + freelancer
+                                    .profile_pic;
+                                const emphiring = freelancer.hstatus == 1 ?
+                                    "Contracted" : "Hire me";
+                                const disabledAttr = freelancer.hstatus == 1 ?
+                                    "disabled" : "";
+                                const colorAttr = freelancer.hstatus == 1 ?
+                                    "danger" : "primary";
+                                const contractAttr = freelancer
+                                    .contract_period == null ? "Available" :
+                                    freelancer.contract_period;
+                                const disabledAtt = freelancer.hstatus == 1 ?
+                                    "pointer-events: none; opacity: 1;" : "";
+                                const salary = freelancer.salary == null ?
+                                    `<span style="color: red; font-weight: bold;">₱</span> Negotiable` :
+                                    `<span style="color: red; font-weight: bold;">₱ ${freelancer.salary}.00</span>/per hour`;
+
+                                const html = `
                                 <div style="background-color: #ccd5ae; border-radius: 10px;" id="freelancer${category.id}" class="tab-pane fade show p-0 limitfl">
                                     <div class="job-item p-4 mb-4">
                                         <div class="row g-4">
@@ -597,48 +638,52 @@ $(document).ready(function() {
                                     </div>
                                 </div>
                             `;
-                            console.log(freelancer.id)
-                            // Append the HTML to the tabcontent
-                            $('.freelancer').append(html);
+                                console.log(freelancer.id)
+                                // Append the HTML to the tabcontent
+                                $('.freelancer').append(html);
+                            });
                         });
-                    });
-                }, // Added closing bracket for the success property
-                error: function(xhr, textStatus, errorThrown) {
-                    console.log(errorThrown);
-                }
+                    }, // Added closing bracket for the success property
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                });
             });
-        });
 
-        // Use event delegation to attach a click event handler to the dynamically-appended .btnModal button
-  $('.freelancer').on('click', '#btnModal', function() {
-    var modalId = $(this).val();
-    // console.log("Freelancer ID:", freelancerId);
-    // alert(modalId)
-    // Use the freelancerId value in your AJAX request, if needed
-    $.ajax({
-                url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
-                type: 'GET',
-                success: function(data) {
-                    // console.log(data)
-                    $('#modalView').empty();
-                    // console.log(data[0].name)
-                    var skillsString = '';
-                    // Loop through the data and create the HTML elements
-                    $.each(data[0].freelancer_skills, function(index, skills) {
-                        console.log(skills.skills_name) //jobtitle
-                        skillsString += `<span style="font-size:.7em; margin-bottom: .5rem; margin-right: 2rem;" class="btn btn-primary">${skills.skills_name}</span>`;
+            // Use event delegation to attach a click event handler to the dynamically-appended .btnModal button
+            $('.freelancer').on('click', '#btnModal', function() {
+                var modalId = $(this).val();
+                // console.log("Freelancer ID:", freelancerId);
+                // alert(modalId)
+                // Use the freelancerId value in your AJAX request, if needed
+                $.ajax({
+                    url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
+                    type: 'GET',
+                    success: function(data) {
+                        // console.log(data)
+                        $('#modalView').empty();
+                        // console.log(data[0].name)
+                        var skillsString = '';
+                        // Loop through the data and create the HTML elements
+                        $.each(data[0].freelancer_skills, function(index, skills) {
+                            console.log(skills.skills_name) //jobtitle
+                            skillsString +=
+                                `<span style="font-size:.7em; margin-bottom: .5rem; margin-right: 2rem;" class="btn btn-primary">${skills.skills_name}</span>`;
 
-                    });
+                        });
 
-                       var resumeBtn;
+                        var resumeBtn;
                         if (data[0].resume === null) {
                             resumeBtn = '<button class="btn btn-danger">No Resume</button>';
                         } else {
-                            resumeBtn = '<a href="{{ asset('resume/') }}/' + data[0].resume + '"><button class="btn btn-primary">Download CV</button></a>';
+                            resumeBtn = '<a href="{{ asset('resume/') }}/' + data[0].resume +
+                                '"><button class="btn btn-primary">Download CV</button></a>';
                         }
 
-                    const profilePic = data[0].profile_pic == null ? "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" : "{{ asset('uploads/') }}/" + data[0].profile_pic;
-                            $('#modalView').append(`
+                        const profilePic = data[0].profile_pic == null ?
+                            "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" :
+                            "{{ asset('uploads/') }}/" + data[0].profile_pic;
+                        $('#modalView').append(`
                             <div class="container py-5">
                             <div class="row">
                             <div class="col-lg-4">
@@ -709,7 +754,7 @@ $(document).ready(function() {
                                     </div>
                                     <div class="col-sm-9">
                                     <p class="text-muted mb-0">${data[0].gender}</p>
-                                    </div>http://127.0.0.1:8000/
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="row">
@@ -777,63 +822,62 @@ $(document).ready(function() {
                         </div>
                             </div>
                             `);
-                            $('#modalContent').modal('show');
+                        $('#modalContent').modal('show');
 
 
-                }, // Added closing bracket for the success property
-                error: function(xhr, textStatus, errorThrown) {
-                    console.log(errorThrown);
-                }
+                    }, // Added closing bracket for the success property
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                });
             });
-  });
-});
+        });
+    </script>
+    {{-- END OF SEARCH ENDPOINT --}}
 
 
-</script>
-{{-- END OF SEARCH ENDPOINT --}}
+    {{-- MODAL PLUGINS --}}
+    <script src="backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    {{-- MODAL PLUGINS --}}
 
 
-{{-- MODAL PLUGINS --}}
- <script src="backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-{{-- MODAL PLUGINS --}}
-
-
-{{-- HIDE THE MODAL  --}}
-<script>
-$(document).ready(function() {
-    $('.close').click(function() {
-        $('#modalContent').modal('hide');
-    });
-});
-</script>
-{{-- HIDE THE MODAL  --}}
+    {{-- HIDE THE MODAL  --}}
+    <script>
+        $(document).ready(function() {
+            $('.close').click(function() {
+                $('#modalContent').modal('hide');
+            });
+        });
+    </script>
+    {{-- HIDE THE MODAL  --}}
 
 
 
-<!-- Messenger Chat Plugin Code -->
+    <!-- Messenger Chat Plugin Code -->
 
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "102702951941118");
-      chatbox.setAttribute("attribution", "biz_inbox");
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "102702951941118");
+        chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v16.0'
-        });
-      };
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v16.0'
+            });
+        };
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
 </body>
 
