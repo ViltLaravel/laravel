@@ -1,7 +1,7 @@
 @extends('backend_home.app')
 @section('content')
     <!-- Carousel Start -->
-    <div style="font-family: 'Jost', sans-serif;" class="container-fluid p-0">
+    <div class="container-fluid p-0">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="backend_1/img/bg1.png" alt="">
@@ -68,31 +68,18 @@
     <!-- Search Start -->
     <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
         <div class="container">
-            <div class="row g-2">
-                <div class="col-md-10">
-                    <div class="row g-2">
-                        <div class="row g-2">
-                            <div class="col-md-4">
-                                <div style="display: flex;" class="input-group">
-                                    <div style="margin-right: 10px;">
-                                        <select class="form-select rounded-pill" id="mySelect"
-                                            aria-label="Search category">
-                                            <option selected disabled>Search Talent</option>
-                                            @foreach ($all as $al)
-                                                <option value="{{ $al->id }}">{{ $al->categoryname }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <button id="myButton" class="btn btn-outline-light rounded-pill" type="button">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+            <div style="width: 100%" class="input-group">
+                <div style="width: 100%" class="d-flex gap-3">
+                    <select class="form-select rounded-pill" id="mySelect"
+                        aria-label="Search category">
+                        <option selected disabled>Search Talent</option>
+                        @foreach ($all as $al)
+                            <option value="{{ $al->id }}">{{ $al->categoryname }}</option>
+                        @endforeach
+                    </select>
+                    <button id="myButton" class="btn btn-outline-light rounded-circle d-flex justify-content-center align-items-center" style="width: 50px; height: 50px" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -281,49 +268,49 @@
         <div class="owl-carousel testimonial-carousel">
             <div class="testimonial-item bg-light rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Great Website</p>
+                <p>Your attention to detail is absolutely remarkable. It’s evident you put a lot of thought into your work, and it really shows in the final product!</p>
                 <div class="d-flex align-items-center">
-                    <img src="{{ asset('backend_1/img/1650844639101.jpg') }}"
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.BAdrtOmCjHMDXWlyWKB3YAHaHa&pid=Api&P=0"
                         style="width: 50px; height: 50px; border-radius: 50px; border: 2px solid #fff">
                     <div class="ps-3">
-                        <h5 class="mb-1">Nicole Amoguis</h5>
+                        <h5 class="mb-1">Mike Labrador</h5>
                         <small>Software Engineer</small>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item bg-light rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Excellent website</p>
+                <p>You have a great ability to deliver high-quality work ahead of schedule. Your professionalism and time management skills are truly impressive.</p>
                 <div class="d-flex align-items-center">
                     <img src="https://tse3.mm.bing.net/th?id=OIP.evVt32Vz1srnuF_cQ73kfAHaHa&pid=Api&P=0"
                         style="width: 50px; height: 50px; border-radius: 50px; border: 2px solid #fff">
                     <div class="ps-3">
                         <h5 class="mb-1">Sharmaine Catana</h5>
-                        <small>Business Women</small>
+                        <small>Entrepreneur</small>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item bg-light rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Outstanding website</p>
+                <p>I really appreciate your creativity and innovative approach. The way you bring fresh ideas to the table is exactly what every project needs.</p>
                 <div class="d-flex align-items-center">
                     <img src="https://tse4.mm.bing.net/th?id=OIP.0A1RSeVHV4YfoDGR2jUvHwHaHa&pid=Api&P=0"
                         style="width: 50px; height: 50px; border-radius: 50px; border: 2px solid #fff">
                     <div class="ps-3">
-                        <h5 class="mb-1">Jeanny Amoguis</h5>
-                        <small>Police</small>
+                        <h5 class="mb-1">Jeanny Cruz</h5>
+                        <small>Tech Lead</small>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item bg-light rounded p-4">
                 <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Exceptional website</p>
+                <p>Your communication throughout this project was outstanding. It’s a pleasure working with someone so responsive and open to collaboration.</p>
                 <div class="d-flex align-items-center">
-                    <img src="https://tse1.mm.bing.net/th?id=OIP.BAdrtOmCjHMDXWlyWKB3YAHaHa&pid=Api&P=0"
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.0A1RSeVHV4YfoDGR2jUvHwHaHa&pid=Api&P=0"
                         style="width: 50px; height: 50px; border-radius: 50px; border: 2px solid #fff">
                     <div class="ps-3">
-                        <h5 class="mb-1">Dilmar Amoguis</h5>
-                        <small>Mechanics</small>
+                        <h5 class="mb-1">Mae Sanchez</h5>
+                        <small>Accountant</small>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
                 <h5 class="text-white mb-4">Contact</h5>
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Poblacion, Pilar, Bohol</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+(63)9460320445</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>nicoleamoguis15@gmail.com</p>
                 <div class="d-flex pt-2">
                     <a style="border-radius: 50px;" class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
                     <a style="border-radius: 50px;" class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -40,9 +40,7 @@
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom" href="/">E-TRABAHO</a>, All Right Reserved.
-
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a class="border-bottom" href="">BISU-BilarCampus(S.Y 2022-2023)</a>
+                    Designed By <a class="border-bottom" href="https://nicole-amoguis-portfolio.vercel.app/">bossNic</a>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">

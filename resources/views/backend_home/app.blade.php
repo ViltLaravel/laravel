@@ -7,48 +7,19 @@
     {!! SEOMeta::generate() !!}
     {!! OpenGraph::generate() !!}
 
-    {{-- <meta content="" name="keywords">
-    <meta content="" name="description"> --}}
-
-    <!-- Favicon -->
-
     <link href="{{ asset('backend_1/img/preloading.png') }}" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="{{ asset('backend_1/lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('backend_1/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('backend_1/css/bootstrap.min.css') }}" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="{{ asset('backend_1/css/style.css') }}" rel="stylesheet">
-
-    <!-- Slider start -->
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-
-
     <style>
-        /* Define the typing animation */
         @keyframes typing {
             from {
                 width: 0;
@@ -58,8 +29,6 @@
                 width: 100%;
             }
         }
-
-        /* Apply the animation to the text */
         #typewriter {
             overflow: hidden;
             border-right: 2px solid;
@@ -68,11 +37,10 @@
             animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
         }
 
-
         .cssbuttons-io-button {
             background: #a3b18a;
             color: white;
-            font-family: inherit;
+            font-family: 'Poppins', sans-serif;
             padding: 0.35em;
             padding-left: 1.2em;
             font-size: 17px;
@@ -122,8 +90,14 @@
             transform: scale(0.95);
         }
     </style>
-
-
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 
 <style>
@@ -139,28 +113,11 @@
 </style>
 
 <body>
-    <div class="container-xxl bg-white p-0">
-
-        <!-- loading -->
+    <div class="bg-white p-0">
         @include('backend_home.loading')
-        <!-- /.loading -->
-
-        <!-- corousel -->
         @include('backend_home.navbar')
-        <!-- /.carousel -->
-
-        <!-- Navbar -->
-        {{-- @include('backend_home.carousel') --}}
-        <!-- /.navbar -->
-
-        {{-- dashboard --}}
         @yield('content')
-
-        <!-- Footer -->
         @include('backend_home.footer')
-        <!-- /.Footer -->
-
-        <!-- Back to Top -->
         <a href="#" style="border-radius: 50%; border-color: white"
             class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
@@ -172,11 +129,7 @@
     <script src="{{ asset('backend_1/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('backend_1/lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('backend_1/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-
-    {{-- page-history --}}
     <script src="{{ asset('404/404.js') }}"></script>
-
-    <!-- Template Javascript -->
     <script src="{{ asset('backend_1/js/main.js') }}"></script>
 
     {{-- SWEETALERT START --}}
@@ -209,6 +162,10 @@
         });
     </script>
 
+    <script>
+        console.log(@json(url()->current()))
+    </script>
+
     {{-- RATING UI --}}
     <script>
         function updateRating(value) {
@@ -228,17 +185,14 @@
 
     {{-- FREELANCER LIST SECTION --}}
     <script>
-        // START OF CLICK CATEGORY JOBTITLE
         $(document).ready(function() {
             $('.fetch-data-btn').click(function() {
                 const categoryId = $(this).val();
-                // alert(categoryId)
                 $.ajax({
-                    url: `http://127.0.0.1:8000/freelancer/category/${categoryId}`, // Modified URL with categoryId parameter
+                    url: `http://127.0.0.1:8000/freelancer/category/${categoryId}`,
                     type: 'GET',
                     success: function(data) {
                         $('.samplc').empty();
-                        // Loop through the data and create the HTML elements
                         $.each(data, function(index, category) {
                             $.each(category.freelancerlists, function(index,
                             freelancer) {
@@ -308,12 +262,10 @@
                                 </div>
                             </div>
                         `;
-                                console.log(freelancer.id)
-                                // Append the HTML to the tabcontent
                                 $('.samplc').append(html);
                             });
                         });
-                    }, // Added closing bracket for the success property
+                    },
                     error: function(xhr, textStatus, errorThrown) {
                         console.log(errorThrown);
                     }
@@ -326,28 +278,15 @@
         // START OF FREELANCER MODAL
         $('.samplc').on('click', '#btnModal', function() {
             var modalId = $(this).val();
-            // console.log("Freelancer ID:", freelancerId);
-            // alert(modalId)
-            // Use the freelancerId value in your AJAX request, if needed
             $.ajax({
-                url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
+                url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`,
                 type: 'GET',
                 success: function(data) {
-                    // console.log(data)
                     $('#modalView').empty();
-                    // console.log(data[0].name)
                     var skillsString = '';
-                    // Loop through the data and create the HTML elements
                     $.each(data[0].freelancer_skills, function(index, skills) {
-                        console.log(skills.skills_name) //jobtitle
-
-                        // $.each(freelancer.freelancer_skills, function(index, skills) {
-                        //     console.log(skills.skills_name) //skills
-                        //     // console.log(freelancer)// Freelancers
                         skillsString +=
                             `<span style="font-size:.7em; margin-bottom: .5rem; margin-right: 2rem;" class="btn btn-primary">${skills.skills_name}</span>`;
-                        // });
-
                     });
 
                     var resumeBtn;
@@ -500,9 +439,7 @@
                             </div>
                             `);
                     $('#modalContent').modal('show');
-
-
-                }, // Added closing bracket for the success property
+                },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log(errorThrown);
                 }
@@ -560,20 +497,14 @@
         $(document).ready(function() {
             $('#myButton').click(function() {
                 var selectedValue = $('#mySelect').val();
-                // alert(categoryId)
                 $.ajax({
-                    url: `http://127.0.0.1:8000/freelancerss/${selectedValue}`, // Modified URL with categoryId parameter
+                    url: `http://127.0.0.1:8000/freelancerss/${selectedValue}`,
                     type: 'GET',
                     success: function(data) {
-                        // console.log(data);
-                        // Clear the tabcontent before appending the new data
-                        // console.log(data[0].freelancerlists)
                         $('.freelancer').empty();
-                        // Loop through the data and create the HTML elements
                         $.each(data, function(index, category) {
                             $.each(category.freelancerlists, function(index,
                             freelancer) {
-                                // console.log(freelancer);
                                 const profilePic = freelancer.profile_pic ==
                                     null ?
                                     "{{ asset('backend/dist/img/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg') }}" :
@@ -638,35 +569,25 @@
                                     </div>
                                 </div>
                             `;
-                                console.log(freelancer.id)
-                                // Append the HTML to the tabcontent
                                 $('.freelancer').append(html);
                             });
                         });
-                    }, // Added closing bracket for the success property
+                    },
                     error: function(xhr, textStatus, errorThrown) {
                         console.log(errorThrown);
                     }
                 });
             });
 
-            // Use event delegation to attach a click event handler to the dynamically-appended .btnModal button
             $('.freelancer').on('click', '#btnModal', function() {
                 var modalId = $(this).val();
-                // console.log("Freelancer ID:", freelancerId);
-                // alert(modalId)
-                // Use the freelancerId value in your AJAX request, if needed
                 $.ajax({
-                    url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`, // Modified URL with categoryId parameter
+                    url: `http://127.0.0.1:8000/freelancer/modal/${modalId}`,
                     type: 'GET',
                     success: function(data) {
-                        // console.log(data)
                         $('#modalView').empty();
-                        // console.log(data[0].name)
                         var skillsString = '';
-                        // Loop through the data and create the HTML elements
                         $.each(data[0].freelancer_skills, function(index, skills) {
-                            console.log(skills.skills_name) //jobtitle
                             skillsString +=
                                 `<span style="font-size:.7em; margin-bottom: .5rem; margin-right: 2rem;" class="btn btn-primary">${skills.skills_name}</span>`;
 
@@ -823,9 +744,7 @@
                             </div>
                             `);
                         $('#modalContent').modal('show');
-
-
-                    }, // Added closing bracket for the success property
+                    },
                     error: function(xhr, textStatus, errorThrown) {
                         console.log(errorThrown);
                     }

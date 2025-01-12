@@ -44,7 +44,7 @@
                         @endif
 
                       </p>
-                      <span class="fas fa-star ms-2 text-warning"><span style="font-family: 'Jost', sans-serif; color: black; font-weight: 400;"> {{ $employer->freelancer_rating }}.0/5 rating</span></span>
+                      <span class="fas fa-star ms-2 text-warning"><span style="color: black; font-weight: 400;"> {{ $employer->freelancer_rating }}.0/5 rating</span></span>
                     </div>
                     <p class="mb-0">
                         <h5>Message</h5>

@@ -6,26 +6,27 @@
   <title>etrabaho | Registration</title>
 
   <link href="{{ asset('backend_1/img/preloading.png') }}" rel="icon">
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- icheck bootstrap -->
   <link rel="stylesheet" href="{{ asset('backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-  <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
-  <!-- Toaster Notification -->
   <link rel="stylesheet" href="{{asset('toaster/toastr.min.css')}}">
 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  </style>
+  <style>
+      body {
+          font-family: 'Poppins', sans-serif;
+      }
+</style>
 </head>
-<body class="hold-transition register-page">
+<body class="hold-transition register-page" style="margin: 20px">
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
         <a href="/" style="display: flex; align-items: center; justify-content: center;">
           <img src="{{ asset('backend_1/img/navbar_logo.png') }}" style="height: 50px;">
-          <h1 style="font-family: 'Ubuntu', sans-serif; color: black;" class="m-0 display-5">trabaho</h1>
+          <h1 style="color: black;" class="m-0 display-5">trabaho</h1>
         </a>
     </div>
     <div class="card-body">
@@ -54,7 +55,6 @@
           <input type="password" name="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <!--<span class="fas fa-lock"></span>-->
               <span class="fas fa-eye-slash toggle-password"></span>
             </div>
           </div>
@@ -63,7 +63,6 @@
           <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <!--<span class="fas fa-lock"></span>-->
               <span class="fas fa-eye-slash toggle-password"></span>
             </div>
           </div>
@@ -130,8 +129,8 @@
           </div>
       </div>
 
-        <div class="row">
-          <div class="col-8">
+        <div class="d-flex flex-column flex-md-row justify-content-md-between justify-content-center">
+          <div>
             <div class="icheck-primary">
               <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
               <label for="agreeTerms">
@@ -139,16 +138,14 @@
               </label>
             </div>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
+          <div>
             <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
-          <!-- /.col -->
         </div>
       </form>
 
 
-      <!-- Modal -->
+    {{-- Agreement Modal --}}
     <div class="modal fade" id="term" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -166,32 +163,22 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Agree</button>
-            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
             </div>
         </div>
         </div>
     </div>
+    {{-- Agreement Modal --}}
 
-
-
-
-      {{-- <div class="social-auth-links text-center">
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
-      </div> --}}
-
-      <a href="{{ asset('login') }}" class="text-center">I already have a membership</a>
+      <div class="d-flex justify-content-center">
+        <a href="{{ asset('login') }}" class="text-center">I already have a membership</a>
+      </div>
     </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
+  </div>
 </div>
-<!-- /.register-box -->
+
+<script>
+  console.log(@json($address), 'test')
+</script>
 
 
 <!-- jQuery -->
