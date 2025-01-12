@@ -41,8 +41,7 @@ class LoginController extends Controller
 
     }
 
-     //in the LoginController
-     protected function authenticated(Request $request, $user)
+    protected function authenticated(Request $request, $user)
      {
          if (!$user->verified) {
              auth()->logout();
@@ -52,7 +51,6 @@ class LoginController extends Controller
          {
            return redirect()->intended($this->redirectPath());
          }
-
      }
 
 

@@ -17,7 +17,10 @@
             @if (!Auth::user())
                 <a style="color:#14a800" href="{{ route('login') }}" class="nav-item nav-link {{ request()->routeIs('login') ? 'active' : '' }}">Login</a>
             @elseif (auth()->user()->verified == 0)
-                <a style="color:#14a800" href="#" class="nav-item nav-link">Verification</a>
+                <a style="color:#14a800" href="{{ route('logout') }}" class="nav-item nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Verification</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             @else
                 <a style="color:#14a800" href="/home" class="nav-item nav-link {{ request()->is('home') ? 'active' : '' }}">{{ auth()->user()->name }}</a>
             @endif

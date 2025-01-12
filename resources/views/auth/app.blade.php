@@ -20,8 +20,6 @@
 </head>
 
 <body class="hold-transition login-page hold-transition lockscreen">
-
-  <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__wobble" src="{{ asset('backend_1/img/preloading.png') }}" alt="AdminLTELogo" height="60" width="60">
   </div>
@@ -92,7 +90,6 @@
 </script>
 
 <script>
-  // Toggle password visibility
   $(document).on('click', '.toggle-password', function() {
     $(this).toggleClass('fa-eye fa-eye-slash');
     var input = $(this).closest('.input-group').find('input');
@@ -103,9 +100,6 @@
     }
   });
 </script>
-
-<!-- End Toaster & Sweetalert -->
-
 
 <script>
   document.getElementById('attachment').addEventListener('change', function() {

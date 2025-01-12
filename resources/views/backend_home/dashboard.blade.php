@@ -1,19 +1,16 @@
 @extends('backend_home.app')
 @section('content')
-    <!-- Carousel Start -->
     <div class="container-fluid p-0">
         <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="backend_1/img/bg1.png" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                    style="background: rgba(43, 57, 64, .5);">
+            <div class="d-flex justify-content-center" style="padding: 50px">
+                <img src="hero/img-2.png" style="height: 500px; width: 500px;" alt="hero-img">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h1 class="display-3 text-white animated slideInDown mb-4" id="typewriter"> Online Market
+                            <div class="col-9 col-md-7 col-lg-3">
+                                <h1 class="display-3 animated slideInDown mb-4" style="font-family: 'Poppins', sans-serif;" id="typewriter"> Online Market
                                     Place
                                 </h1>
-                                <!-- <a style="border-radius: 50px" href="{{ route('register') }}" class="btn btn-outline-light">Get started</a> -->
                                 <a href="{{ route('register') }}">
                                     <button class="cssbuttons-io-button"> Get started
                                         <div class="icon">
@@ -32,18 +29,16 @@
                     </div>
                 </div>
             </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="backend_1/img/bg2.png" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                    style="background: rgba(43, 57, 64, .5);">
+            <div class="d-flex justify-content-center" style="padding: 50px">
+                <img src="hero/img-3.png" style="height: 500px; width: 500px;" alt="hero-img">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
                     <div class="container">
                         <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h1 class="display-3 text-white animated slideInDown mb-4" id="typewriter">The Best Startup
-                                    Job
+                            <div class="col-9 col-md-7 col-lg-3">
+                                <h1 class="display-3 animated slideInDown mb-4" style="font-family: 'Poppins', sans-serif;" id="typewriter">
+                                    The Best Startup Job
                                 </h1>
-                                <!-- <a style="border-radius: 50px" href="{{ route('register') }}" class="btn btn-outline-light">Get started</a> -->
-                                <a href="{{ route('login') }}">
+                                <a href="{{ route('register') }}">
                                     <button class="cssbuttons-io-button"> Get started
                                         <div class="icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
@@ -63,7 +58,6 @@
             </div>
         </div>
     </div>
-    <!-- Carousel End -->
 
     <!-- Search Start -->
     <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">

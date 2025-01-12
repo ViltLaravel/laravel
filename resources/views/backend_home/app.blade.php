@@ -18,25 +18,51 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
-
     <style>
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 100%;
-            }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    
+        body {
+            font-family: 'Poppins', sans-serif;
         }
+    
         #typewriter {
             overflow: hidden;
             border-right: 2px solid;
             white-space: nowrap;
-            animation: typing 3s steps(30, end) forwards infinite;
-            animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            display: inline-block;
+            font-family: monospace;
+            font-size: 35px;
+            color: #00B074;
         }
 
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes erasing {
+            from { width: 100%; }
+            to { width: 0; }
+        }
+
+        @keyframes cursor {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: black; }
+        }
+
+        #typewriter {
+            animation: typing 5s steps(30, end) 1s forwards, 
+                       erasing 5s steps(30, end) 5s forwards;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        #typewriter::after {
+            content: '';
+            display: inline-block;
+            border-right: 2px solid black;
+            animation: cursor 0.5s step-end infinite;
+        }
+    
         .cssbuttons-io-button {
             background: #a3b18a;
             color: white;
@@ -56,7 +82,7 @@
             height: 2.8em;
             padding-right: 3.3em;
         }
-
+    
         .cssbuttons-io-button .icon {
             background: white;
             margin-left: 1em;
@@ -71,47 +97,34 @@
             right: 0.3em;
             transition: all 0.3s;
         }
-
+    
         .cssbuttons-io-button:hover .icon {
             width: calc(100% - 0.6em);
         }
-
+    
         .cssbuttons-io-button .icon svg {
             width: 1.1em;
             transition: transform 0.3s;
             color: #a3b18a;
         }
-
+    
         .cssbuttons-io-button:hover .icon svg {
             transform: translateX(0.1em);
         }
-
+    
         .cssbuttons-io-button:active .icon {
             transform: scale(0.95);
         }
-    </style>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    </style>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+    
+        .limitfl:nth-child(n+3) {
+            display: none;
+        }
+    
+        .btn-outline-primary:hover {
+            color: #fff;
         }
     </style>
 </head>
-
-<style>
-    .limitfl:nth-child(n+3) {
-        display: none;
-    }
-</style>
-
-<style>
-    .btn-outline-primary:hover {
-        color: #fff;
-    }
-</style>
-
 <body>
     <div class="bg-white p-0">
         @include('backend_home.loading')
@@ -160,10 +173,6 @@
                 arrows: false
             });
         });
-    </script>
-
-    <script>
-        console.log(@json(url()->current()))
     </script>
 
     {{-- RATING UI --}}

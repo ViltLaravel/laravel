@@ -83,7 +83,6 @@ class RegisterController extends Controller
         $status = User::select('status')->first();
         $user = new User;
 
-
         if($status ['status'] == '0'){
             $user->status = $data['status'] = '0';
             $user->name = $data['name'];
@@ -91,11 +90,8 @@ class RegisterController extends Controller
             $user->password = Hash::make($data['password']);
 
         if (isset($data['attachment'])) {
-            // Get the file
             $file = $data['attachment'];
-            // Generate a unique file name
-            $fileName = time().'.'.$file->getClientOriginalExtension();
-            // Save the file to the public/uploads directory
+            $fileName = 'valid_personal_data.' . $file->getClientOriginalExtension();
             $file->move(public_path('attachments'), $fileName);
             $user->attachment = $fileName;
         }
@@ -108,13 +104,9 @@ class RegisterController extends Controller
             $user->name = $data['name'];
             $user->email = $data['email'];
             $user->password = Hash::make($data['password']);
-
             if (isset($data['attachment'])) {
-            // Get the file
             $file = $data['attachment'];
-            // Generate a unique file name
-            $fileName = time().'.'.$file->getClientOriginalExtension();
-            // Save the file to the public/uploads directory
+            $fileName = 'valid_personal_data.' . $file->getClientOriginalExtension();
             $file->move(public_path('attachments'), $fileName);
             $user->attachment = $fileName;
         }
