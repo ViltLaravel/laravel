@@ -41,7 +41,7 @@ jobs:
             storage/*.log
 
       - name: ⚙️ Database seeder and migration
-      run: |
+        run: |
           php artisan migrate --force
           php artisan db:seed --force
 
