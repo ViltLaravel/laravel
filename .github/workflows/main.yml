@@ -1,0 +1,35 @@
+on:
+  push:
+    branches:
+      - master
+
+name: 🚀 Deploy Laravel Project
+
+jobs:
+  deploy:
+    name: 🎉 Deploy to Hostinger
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Install dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: ⚙️ Prepare the application
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+      - name: 📂 Sync files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: www.liqwidcode.site
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: /etrabaho.liqwidcode.site/
+          exclude: |
+            .git*
+            storage/*.log
