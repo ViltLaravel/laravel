@@ -26,6 +26,9 @@ jobs:
           php artisan route:cache
           php artisan view:cache
 
+      - name: 🧹 Clean up node_modules
+        run: rm -rf node_modules
+
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
