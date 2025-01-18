@@ -16,6 +16,8 @@ jobs:
 
       - name: 📦 Install dependencies
         run: composer install --no-dev --optimize-autoloader
+
+      - name: 📦 Install node modules
         run: npm install
 
       - name: ⚙️ Prepare the application
