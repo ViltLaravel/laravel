@@ -26,7 +26,6 @@ jobs:
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          protocol: sftp
           server: liqwidcode.site
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
