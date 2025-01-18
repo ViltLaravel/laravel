@@ -16,6 +16,7 @@ jobs:
 
       - name: 📦 Install dependencies
         run: composer install --no-dev --optimize-autoloader
+        run: npm install
 
       - name: ⚙️ Prepare the application
         run: |
@@ -33,4 +34,6 @@ jobs:
           server-dir: /public_html/etrabaho/
           exclude: |
             .git*
+            node_modules
+            vendor
             storage/*.log
