@@ -1,4 +1,4 @@
-name: 🚀 Deploy Laravel Project
+name: 🚀 Deploy Laravel Project on push
 
 on:
   push:
@@ -6,51 +6,69 @@ on:
       - main
 
 jobs:
-  deploy:
+  web-deploy:
     name: 🎉 Deploy to Hostinger
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🚚 Checkout code
+      - name: 🚚 Get the latest code
         uses: actions/checkout@v4
 
-      - name: 📦 Install dependencies
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+
+      - name: Copy .env if it doesn't exist
+        run: |
+          if [ ! -f .env ]; then
+            cp .env.example .env
+          fi
+
+      - name: Install Composer dependencies
         run: composer install --no-dev --optimize-autoloader
+        cache:
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
 
-      - name: 📦 Install node modules
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Generate storage link
+        run: php artisan storage:link
+
+      - name: Set directory permissions
+        run: chmod -R 777 storage bootstrap/cache
+
+      - name: Install Node modules
         run: npm install
+        cache:
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      - name: ⚙️ Prepare the application
+      - name: Prepare the application
         run: |
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
 
+      - name: Database migration (and seeding, only if needed)
+        run: |
+          php artisan migrate --force
+          # Optionally, run seeding only in certain environments
+          if [[ "${{ github.event.ref }}" == "refs/heads/main" ]]; then
+            php artisan db:seed --force
+          fi
+
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          protocol: ftp
-          server: liqwidcode.site
-          username: ${{ secrets.ftp_username }}
-          password: ${{ secrets.ftp_password }}
-          server-dir: /public_html/etrabaho/
-          exclude: |
-            .git**
-            node_modules/**
-            vendor/**
-            storage/*.log
-
-      - name: ⚙️ Database seeder and migration
-        run: |
-          php artisan migrate --force
-          php artisan db:seed --force
-
-      - name: 🛠 Clear caches and optimize the app (optional)
-        run: |
-          ssh -o StrictHostKeyChecking=no user@liqwidcode.site << 'EOF'
-            cd /public_html/etrabaho
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
-            php artisan optimize:clear
-          EOF
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /
