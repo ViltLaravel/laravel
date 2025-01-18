@@ -26,7 +26,7 @@ jobs:
           php artisan route:cache
           php artisan view:cache
           php artisan migrate:fresh
-          php artisan db:seed --force
+          php artisan db:seed
 
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
