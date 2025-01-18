@@ -36,6 +36,6 @@ jobs:
           server-dir: /public_html/etrabaho/
           exclude: |
             .git*
-            node_modules
-            vendor
+            node_modules/
+            vendor/
             storage/*.log
