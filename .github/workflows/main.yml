@@ -36,7 +36,7 @@ jobs:
           server: liqwidcode.site
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          local-dir: ./deploy.zip
+          local-dir: ./deploy.zip/
           server-dir: /public_html/etrabaho/
 
       - name: 🧰 Unzip on Server
