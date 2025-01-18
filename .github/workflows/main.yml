@@ -35,10 +35,15 @@ jobs:
           password: ${{ secrets.ftp_password }}
           server-dir: /public_html/etrabaho/
           exclude: |
-            .git*
-            node_modules/
-            vendor/
+            .git**
+            node_modules/**
+            vendor/**
             storage/*.log
+
+      - name: ⚙️ Database seeder and migration
+      run: |
+          php artisan migrate --force
+          php artisan db:seed --force
 
       - name: 🛠 Clear caches and optimize the app (optional)
         run: |
