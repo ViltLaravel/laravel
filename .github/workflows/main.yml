@@ -1,13 +1,13 @@
+name: 🚀 Deploy Laravel Project
+
 on:
   push:
     branches:
       - main
 
-name: 🚀 Deploy Laravel Project
-
 jobs:
   deploy:
-    name: 🎉 Deploy to Hostinger via ZIP
+    name: 🎉 Deploy to Hostinger
     runs-on: ubuntu-latest
 
     steps:
@@ -25,24 +25,29 @@ jobs:
           php artisan config:cache
           php artisan route:cache
           php artisan view:cache
+          php artisan migrate --force
+          php artisan db:seed --force
 
-      - name: 🧳 Create a ZIP file of the project
-        run: zip -r deploy.zip . -x "*.git*" "node_modules/*" "vendor/*" "storage/*.log"
-
-      - name: 🖇️ Upload ZIP file via FTP
+      - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           protocol: ftp
           server: liqwidcode.site
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          local-dir: ./
           server-dir: /public_html/etrabaho/
-          include: deploy.zip
+          exclude: |
+            .git*
+            node_modules/
+            vendor/
+            storage/*.log
 
-      - name: 🧰 Unzip on Server
+      - name: 🛠 Clear caches and optimize the app (optional)
         run: |
-          ssh ${server_ssh_username}@${server_ip} "unzip -o /public_html/etrabaho/deploy.zip -d /public_html/etrabaho && rm /public_html/etrabaho/deploy.zip"
-        env:
-          server_ssh_username: ${{ secrets.server_ssh_username }}
-          server_ip: ${{ secrets.ftp_server_ip }}
+          ssh -o StrictHostKeyChecking=no user@liqwidcode.site << 'EOF'
+            cd /public_html/etrabaho
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan optimize:clear
+          EOF
